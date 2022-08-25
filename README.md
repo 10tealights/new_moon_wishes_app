@@ -65,3 +65,7 @@
 ### 画面遷移図
 
 [Figma](https://www.figma.com/file/VMQPVTTXx8SufUzVXXXgTe/New-Moon-Wishes-APP?node-id=0%3A1)
+
+### ER図
+
+[draw.io](https://drive.google.com/file/d/1cNGH8-N0cmfq3ROvsrWNdek4_FKPUKy7/view?usp=sharing)
