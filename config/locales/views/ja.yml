@@ -4,6 +4,7 @@ ja:
     signup: '登録'
     logout: 'ログアウト'
     site_title: 'New moon wishes(TBD)'
+    password_reset_mail_subject: 'パスワードリセット手順のお知らせ'
     message:
       not_authenticated: 'ログインしてください'
       created: '%{item}を作成しました'
@@ -25,3 +26,6 @@ ja:
       login_failed: 'ログインできませんでした'
     destroy:
       logout_success: 'ログアウトしました'
+  password_resets:
+    create:
+      reset_success: 'パスワードリセットメールを送信しました'
