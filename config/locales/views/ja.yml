@@ -1,0 +1,17 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    signup: '登録'
+    logout: 'ログアウト'
+    site_title: 'New moon whises'
+    message:
+      not_authenticated: 'ログインしてください'
+      created: '%{item}を作成しました'
+      not_created: '%{item}を作成できませんでした'
+      updated: '%{item}を更新しました'
+      not_updated: '%{item}を更新できませんでした'
+      deleted: '%{item}を削除しました'
+      delete_alert: '本当に実行してよろしいですか？'
+      password_reset: 'パスワードリセット手順を送信しました'
+      password_reset_success: 'パスワードが変更されました'
+      not_authorized: '権限がありません'

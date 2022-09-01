@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        name: '名前'
+        account_id: 'アカウント名'
+        password: 'パスワード'
+        password_confirmation: 'パスワード(確認)'
