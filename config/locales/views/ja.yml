@@ -3,7 +3,7 @@ ja:
     login: 'ログイン'
     signup: '登録'
     logout: 'ログアウト'
-    site_title: 'New moon whises'
+    site_title: 'New moon wishes(TBD)'
     message:
       not_authenticated: 'ログインしてください'
       created: '%{item}を作成しました'
@@ -15,3 +15,6 @@ ja:
       password_reset: 'パスワードリセット手順を送信しました'
       password_reset_success: 'パスワードが変更されました'
       not_authorized: '権限がありません'
+  users:
+    new:
+      title: '新規登録'

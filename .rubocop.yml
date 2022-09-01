@@ -1,0 +1,20 @@
+AllCops:
+  Exclude: # 検査除外とするディレクトリ・ファイルの指定
+    - 'vender/**/*'
+    - 'node_modules/**/*'
+    - 'db/**/*'
+    - 'app/channels/**/*'
+    - 'config/**/*'
+    - 'config.ru'
+    - 'bin/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+    - 'Gemfile'
+  NewCops: enable # バージョンが上がった際に追加されたCopを有効にする
+Style/Documentation: # classの説明を1行目に記述 
+  Enabled: false
+Style/FrozenStringLiteralComment: # 文字列リテラルについての警告
+  Enabled: false
+Style/AsciiComments: # 日本語でのコメント記述
+  Enabled: false

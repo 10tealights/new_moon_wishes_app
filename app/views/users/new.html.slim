@@ -1,6 +1,7 @@
+- content_for :title, t('.title')
 = form_with model: @user do |f|
   = render 'shared/error_messages', object: f.object
-  
+
   div
     = f.label :name
     = f.text_field :name, placeholder: '30文字以内で入力'
