@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_31_121008) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_200027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -22,7 +22,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_121008) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.integer "access_count_to_reset_password_page", default: 0
     t.index ["account_id"], name: "index_users_on_account_id", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
 end
