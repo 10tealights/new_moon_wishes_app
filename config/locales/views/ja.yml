@@ -18,3 +18,11 @@ ja:
   users:
     new:
       title: '新規登録'
+  user_sessions:
+    new:
+      title: 'ログイン'
+    create:
+      login_success: 'ログインしました'
+      login_failed: 'ログインできませんでした'
+    destroy:
+      logout_success: 'ログアウトしました'
