@@ -8,3 +8,4 @@ ja:
         account_id: 'アカウント名'
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
+        email: 'メールアドレス'

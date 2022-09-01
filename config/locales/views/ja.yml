@@ -12,8 +12,6 @@ ja:
       not_updated: '%{item}を更新できませんでした'
       deleted: '%{item}を削除しました'
       delete_alert: '本当に実行してよろしいですか？'
-      password_reset: 'パスワードリセット手順を送信しました'
-      password_reset_success: 'パスワードが変更されました'
       not_authorized: '権限がありません'
   users:
     new:
@@ -21,6 +19,7 @@ ja:
   user_sessions:
     new:
       title: 'ログイン'
+      login_attributes: 'アカウント名またはメールアドレス'
     create:
       login_success: 'ログインしました'
       login_failed: 'ログインできませんでした'
