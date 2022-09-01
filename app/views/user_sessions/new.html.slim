@@ -2,15 +2,15 @@
 = form_with url: login_path do |f|
 
   div
-    = f.label :account_id
+    = f.label User.human_attribute_name(:account_id)
     = f.text_field :account_id, placeholder: '30文字以内の半角英数字で入力'
 
   div
-    = f.label :password
+    = f.label User.human_attribute_name(:password) 
     = f.password_field :password, placeholder: 'パスワード(7文字以上)'
 
   div
-    = f.submit 'ログイン'
+    = f.submit t('defaults.login')
 
 p 登録がお済みでない方は
 = link_to '新規登録', new_user_path

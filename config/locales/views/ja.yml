@@ -24,3 +24,5 @@ ja:
     create:
       login_success: 'ログインしました'
       login_failed: 'ログインできませんでした'
+    destroy:
+      logout_success: 'ログアウトしました'
