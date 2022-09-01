@@ -29,3 +29,8 @@ ja:
   password_resets:
     create:
       reset_success: 'パスワードリセットメールを送信しました'
+    edit:
+      title: 'パスワード再設定'
+    update:
+      change_success: 'パスワードを再設定しました'
+      change_failed: 'パスワードを再設定できませんでした'
