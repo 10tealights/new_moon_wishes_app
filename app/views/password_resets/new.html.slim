@@ -1,0 +1,5 @@
+h1 パスワードリセット
+= form_with url: password_resets_path do |f|
+  = f.label User.human_attribute_name(:email)
+  = f.text_field :email
+  = f.submit '送信'

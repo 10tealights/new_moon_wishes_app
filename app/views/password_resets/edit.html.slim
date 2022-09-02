@@ -1,0 +1,11 @@
+- content_for :title, t('.title') 
+= form_with model:@user, url: password_reset_url(@token), method: :put do |f|
+  = render 'shared/error_messages', object: f.object
+  div
+    = f.label :password
+    = f.password_field :password, placeholder: 'パスワード(7文字以上)'
+  div
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, placeholder: 'パスワード(確認用)'
+  div
+    = f.submit '変更'
