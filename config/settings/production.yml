@@ -1,0 +1,2 @@
+sorcery:
+  line_callback_url: 'https://new-moon-wishes.herokuapp.com/oauth/callback?provider=line'
