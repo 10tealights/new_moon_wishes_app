@@ -34,3 +34,7 @@ ja:
     update:
       change_success: 'パスワードを再設定しました'
       change_failed: 'パスワードを再設定できませんでした'
+  oauths:
+    callback:
+      login_success: '%{item}でログインしました'
+      login_failed: '%{item}でログインできませんでした'

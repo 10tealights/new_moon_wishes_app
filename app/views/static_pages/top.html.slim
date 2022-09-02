@@ -2,3 +2,4 @@ h1 StaticPages#top
 p Find me in app/views/static_pages/top.html.slim
 button.btn.btn-square.loading
 = button_to t('defaults.logout'), logout_path, method: :delete
+= link_to 'LINEログイン', auth_at_provider_path(provider: :line)

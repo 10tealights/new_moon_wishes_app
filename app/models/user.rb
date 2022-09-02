@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  # 現状LINEログインしか想定していないが、今後変更の可能性もあるためWiki通りhas_manyアソシエーションにて設定
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
+
   validates :name, presence: true, length: { maximum: 30 }
   validates :account_id, presence: true, uniqueness: true, length: { maximum: 30 }
 
