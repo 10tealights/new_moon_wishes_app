@@ -1,4 +1,6 @@
 class ZodiacSign < ApplicationRecord
+  has_many :moons
+
   validates :name, presence: true, uniqueness: true
 
   enum name: {
