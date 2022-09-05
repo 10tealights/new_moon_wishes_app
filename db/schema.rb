@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_084152) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_092050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_084152) do
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
     t.index ["user_id"], name: "index_authentications_on_user_id"
+  end
+
+  create_table "moons", force: :cascade do |t|
+    t.bigint "zodiac_sign_id", null: false
+    t.datetime "newmoon_time", null: false
+    t.datetime "fullmoon_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["zodiac_sign_id"], name: "index_moons_on_zodiac_sign_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -48,4 +57,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_084152) do
     t.index ["name"], name: "index_zodiac_signs_on_name", unique: true
   end
 
+  add_foreign_key "moons", "zodiac_signs"
 end
