@@ -44,5 +44,8 @@ module NewMoonWishesApp
 
     # デフォルトのタイムゾーンを日本に設定
     config.time_zone = 'Tokyo'
+
+    # FormObjectの読み込み
+    config.autoload_paths += Dir.glob("#{config.root}/app/models/form/**/*")
   end
 end

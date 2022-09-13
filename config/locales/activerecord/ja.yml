@@ -9,3 +9,7 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード(確認)'
         email: 'メールアドレス'
+      declaration:
+        message: 'メッセージ'
+        come_true: '成就'
+        is_shared: '公開'

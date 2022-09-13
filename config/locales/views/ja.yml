@@ -38,3 +38,9 @@ ja:
     callback:
       login_success: '%{item}でログインしました'
       login_failed: '%{item}でログインできませんでした'
+  declarations:
+    new:
+      title: '願いごとをする'
+    create:
+      created: '願いごとを宣言しました'
+      not_created: '願いごとを宣言できませんでした'
