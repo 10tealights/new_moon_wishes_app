@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  has_many :wishes, dependent: :destroy
   # 現状LINEログインしか想定していないが、今後変更の可能性もあるためWiki通りhas_manyアソシエーションにて設定
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
