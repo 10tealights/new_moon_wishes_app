@@ -18,6 +18,6 @@ class DeclarationsController < ApplicationController
   def declaration_collection_params
     params
       .require(:form_declaration_collection)
-      .permit(declarations_attributes: Form::Declaration::REGISTRABLE_ATTRIBUTES)
+      .permit(declarations_attributes: [:message, :is_shared, { declaration_tags: [] }])
   end
 end
