@@ -53,12 +53,13 @@ class Form::DeclarationCollection
   private
 
   def wish_is_not_created?
-    @wish = @current_user.wishes.find_by(moon_id: 1)
+    latest_newmoon = Moon.latest
+    @wish = @current_user.wishes.find_by(moon_id: latest_newmoon.id)
     if @wish.nil?
-      @wish = @current_user.wishes.build(moon_id: 1)
+      @wish = @current_user.wishes.build(moon_id: latest_newmoon.id)
       true
     else
-      errors.add(:base, '今回の新月の願いごとはすでに宣言されています')
+      errors.add(:base, "今回の#{latest_newmoon.zodiac_sign.name}新月の願いごとはすでに宣言されています")
       false
     end
   end
