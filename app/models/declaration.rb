@@ -1,5 +1,7 @@
 class Declaration < ApplicationRecord
   belongs_to :wish, optional: true
+  has_many :declaration_tags, dependent: :destroy
+  has_many :tags, through: :declaration_tags, source: :tag
 
   validates :message, length: { maximum: 100 }
   validates :come_true, presence: true

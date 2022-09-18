@@ -9,6 +9,9 @@
     div
       = f.label :is_shared
       = f.check_box :is_shared, {}, 1, 0
+    div
+      = f.collection_check_boxes :declaration_tags, Tag.all, :id, :name, { include_hidden: false }
+      hr
       hr
   div
     = fb.submit '願いごとをする'
