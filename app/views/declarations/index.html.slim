@@ -1,0 +1,8 @@
+- content_for :title, t('.title')
+- @wishes.each do |wish|
+  h3 #{wish.zodiac_sign.name_i18n}新月(#{l(wish.moon.newmoon_time)})
+  - wish.declarations.each do |dec|
+    p= dec.message
+    - dec.tags.each do |tag|
+      => tag.name
+  hr

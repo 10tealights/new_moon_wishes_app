@@ -44,3 +44,5 @@ ja:
     create:
       created: '願いごとを宣言しました'
       not_created: '願いごとを宣言できませんでした'
+    show:
+      title: '願いごと一覧'

@@ -28,3 +28,6 @@ ja:
         capricorn: '山羊座'
         aquarius: '水瓶座'
         pisces: '魚座'
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"

@@ -1,4 +1,8 @@
 class DeclarationsController < ApplicationController
+  def index
+    @wishes = current_user.wishes.order(id: :desc).preload(declarations: :tags).preload(:zodiac_sign)
+  end
+
   def new
     @form = Form::DeclarationCollection.new
   end
