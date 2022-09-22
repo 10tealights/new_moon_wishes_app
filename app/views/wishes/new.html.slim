@@ -1,0 +1,18 @@
+- content_for :title, t('.title')
+= form_with model: @form, url: wishes_path, method: :post do |fb|
+  = render 'shared/error_messages', object: fb.object
+  = fb.fields_for :declarations do |form|
+    = render 'shared/error_messages', object: form.object
+    div
+      = form.label :message
+      = form.text_field :message, placeholder: '願いごと'
+    div
+      = form.label :is_shared
+      = form.check_box :is_shared, {}, 1, 0
+    div
+      = form.fields_for :declaration_tags, form.object.declaration_tags.build do |tag|
+        = tag.collection_check_boxes :tag_id, Tag.all, :id, :name, { checked: form.object.tag_ids, include_hidden: false }
+      hr
+      hr
+  div
+    = fb.submit '願いごとをする'
