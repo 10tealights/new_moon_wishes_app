@@ -35,13 +35,13 @@ class WishesController < ApplicationController
 
   def declaration_collection_params
     params
-      .require(:form_declaration_collection)
+      .require(:wish)
       .permit(:id, declarations_attributes: [:id, :message, :is_shared, { declaration_tags: [{ tag_id: [] }] }])
   end
 
   def tag_params
     params
-      .require(:form_declaration_collection)
+      .require(:wish)
       .permit(declarations_attributes: [declaration_tags: [:id, { tag_id: [] }]])[:declarations_attributes]
   end
 end

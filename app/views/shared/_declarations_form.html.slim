@@ -1,0 +1,17 @@
+= form_with model: form do |fb|
+  = render 'shared/error_messages', object: fb.object
+  = fb.fields_for :declarations do |f|
+    = render 'shared/error_messages', object: f.object
+    div
+      = f.label :message
+      = f.text_field :message, placeholder: '願いごと'
+    div
+      = f.label :is_shared
+      = f.check_box :is_shared, {}, 1, 0
+    div
+      = f.fields_for :declaration_tags, f.object.declaration_tags.build do |t|
+        = t.collection_check_boxes :tag_id, Tag.all, :id, :name, { checked: f.object.tag_ids, include_hidden: false }
+      hr
+      hr
+  div
+    = fb.submit '願いごとをする'

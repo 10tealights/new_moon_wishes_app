@@ -9,6 +9,8 @@ class Form::DeclarationCollection
 
   attr_accessor :declarations
 
+  delegate :persisted?, to: :@wish
+
   validate :less_than_two_declarations?
 
   def initialize(current_user = nil, attributes = {}, wish: Wish.new)
@@ -72,6 +74,10 @@ class Form::DeclarationCollection
   rescue ActiveRecord::RecordInvalid => e
     p e
     false
+  end
+
+  def to_model
+    @wish
   end
 
   private
