@@ -31,6 +31,12 @@ class WishesController < ApplicationController
     end
   end
 
+  def destroy
+    @wish = current_user.wishes.find(params[:id])
+    @wish.destroy
+    redirect_to wishes_path, notice: t('.destroyed')
+  end
+
   private
 
   def declaration_collection_params
