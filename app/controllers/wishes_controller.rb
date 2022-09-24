@@ -4,7 +4,7 @@ class WishesController < ApplicationController
   end
 
   def new
-    @form = Form::DeclarationCollection.new
+    @form = Form::DeclarationCollection.new(wish: current_user.wishes.build)
   end
 
   def create

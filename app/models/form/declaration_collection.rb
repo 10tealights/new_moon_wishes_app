@@ -34,19 +34,16 @@ class Form::DeclarationCollection
   end
 
   def save
-    return false unless wish_is_not_created?
-
+    return false unless wish_is_not_created? && valid?
     ActiveRecord::Base.transaction do
       @wish.save!
       declarations.each do |declaration|
         next if declaration.message.blank?
 
         declaration.wish_id = @wish.id
-        return false if invalid?
-
-        # Tagについてもここで同時に保存される
-        declaration.save!
+        return false unless declaration.valid?
       end
+      declarations.each(&:save!)
       true
     end
     rescue ActiveRecord::RecordInvalid => e
@@ -55,6 +52,8 @@ class Form::DeclarationCollection
   end
 
   def update(tag_params)
+    return false unless valid?
+
     ActiveRecord::Base.transaction do
       declarations.each_with_index do |declaration, index|
         next if declaration.message.blank?
@@ -65,10 +64,9 @@ class Form::DeclarationCollection
         else
           declaration.tag_ids = []
         end
-        return false if invalid?
-
-        declaration.save!
+        return false unless declaration.valid?
         end
+      declarations.each(&:save!)
       true
     end
   rescue ActiveRecord::RecordInvalid => e
