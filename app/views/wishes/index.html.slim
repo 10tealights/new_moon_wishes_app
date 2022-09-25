@@ -7,6 +7,8 @@
       - dec.tags.each do |tag|
         => tag.name
       br
+    = link_to '振り返る', edit_reflection_path(wish)
+    br
     = link_to '編集', edit_wish_path(wish)
     br
     = button_to '削除', wish_path(wish), method: :delete

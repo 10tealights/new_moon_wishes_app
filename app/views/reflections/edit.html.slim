@@ -1,0 +1,15 @@
+- content_for :title, t('.title')
+/= #{@form.wish.zodiac_sign.name_i18n}
+= form_with model: @form, url: reflection_path, method: :patch do |fb|
+  = render 'shared/error_messages', object: fb.object
+  h3 #{fb.object.wish.zodiac_sign.name_i18n}新月(#{l(fb.object.wish.moon.newmoon_time)})
+  = fb.fields_for :declarations do |f|
+    = render 'shared/error_messages', object: f.object
+    div
+      = f.object.message
+      br
+      => f.collection_radio_buttons :come_true, Declaration.come_trues_i18n, :first, :last, { checked: f.object.come_true }
+      hr
+  = fb.text_area :memo, value: fb.object.wish.memo, placeholder: '感想などのメモが記録できます'
+  div
+    = fb.submit '振り返りおわり'
