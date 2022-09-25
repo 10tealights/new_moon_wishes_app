@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_14_131050) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_25_143606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_131050) do
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
     t.index ["user_id"], name: "index_authentications_on_user_id"
+  end
+
+  create_table "cheers", force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.bigint "declaration_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["declaration_id"], name: "index_cheers_on_declaration_id"
+    t.index ["user_id", "declaration_id"], name: "index_cheers_on_user_id_and_declaration_id", unique: true
+    t.index ["user_id"], name: "index_cheers_on_user_id"
   end
 
   create_table "declaration_tags", force: :cascade do |t|
@@ -94,6 +104,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_131050) do
     t.index ["name"], name: "index_zodiac_signs_on_name", unique: true
   end
 
+  add_foreign_key "cheers", "declarations"
+  add_foreign_key "cheers", "users"
   add_foreign_key "declaration_tags", "declarations"
   add_foreign_key "declaration_tags", "tags"
   add_foreign_key "declarations", "wishes"
