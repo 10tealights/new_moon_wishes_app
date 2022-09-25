@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resources :wishes, only: %i[index new create edit update destroy]
   resources :reflections, only: %i[edit update]
+  resources :cheers, only: %i[index]
 
   post 'oauth/callback', to: 'oauths#callback'
   get 'oauth/callback', to: 'oauths#callback'

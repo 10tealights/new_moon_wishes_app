@@ -1,0 +1,10 @@
+- content_for :title, t('.title')
+h3 #{@moon_sign.name_i18n}新月(#{l(@latest_moon.newmoon_time)})
+hr
+- @other_declarations.each do |declaration|
+  = declaration.message
+  br
+  - declaration.tags.each do |tag|
+    => tag.name
+  br
+  hr

@@ -60,3 +60,6 @@ ja:
     update:
       updated: '振り返りをしました'
       not_updated: '振り返りができませんでした'
+  cheers:
+    index:
+      title: 'みんなの願いごと'
