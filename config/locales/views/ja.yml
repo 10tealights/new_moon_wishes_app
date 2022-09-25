@@ -54,3 +54,9 @@ ja:
       not_created: '願いごとの再宣言ができませんでした'
     destroy:
       destroyed: '願いごとをなかったことにしました'
+  reflections:
+    edit:
+      title: '振り返りをする'
+    update:
+      updated: '振り返りをしました'
+      not_updated: '振り返りができませんでした'

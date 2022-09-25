@@ -28,6 +28,11 @@ ja:
         capricorn: '山羊座'
         aquarius: '水瓶座'
         pisces: '魚座'
+    declaration:
+      come_true:
+        wished: '願い中'
+        fulfilled: '成就'
+        removed: '不必要'
   time:
     formats:
       default: "%Y/%m/%d %H:%M"

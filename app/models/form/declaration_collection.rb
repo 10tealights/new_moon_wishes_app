@@ -7,7 +7,7 @@ class Form::DeclarationCollection
 
   DEFAULT_ITEM_COUNT = 2
 
-  attr_accessor :declarations
+  attr_accessor :wish, :memo, :declarations
 
   delegate :persisted?, to: :@wish
 
@@ -55,18 +55,23 @@ class Form::DeclarationCollection
     return false unless valid?
 
     ActiveRecord::Base.transaction do
-      declarations.each_with_index do |declaration, index|
-        next if declaration.message.blank?
+      if tag_params[:memo].present?
+        declarations.each(&:save!)
+        @wish.update!(memo: tag_params[:memo])
+      else
+        declarations.each_with_index do |declaration, index|
+          next if declaration.message.blank?
 
-        if tag_params[index.to_s][:declaration_tags].present?
-          tags = tag_params[index.to_s][:declaration_tags][:tag_id].map(&:to_i)
-          declaration.tag_ids = tags
-        else
-          declaration.tag_ids = []
+          if tag_params[index.to_s][:declaration_tags].present?
+            tags = tag_params[index.to_s][:declaration_tags][:tag_id].map(&:to_i)
+            declaration.tag_ids = tags
+          else
+            declaration.tag_ids = []
+          end
+          return false unless declaration.valid?
         end
-        return false unless declaration.valid?
-        end
-      declarations.each(&:save!)
+        declarations.each(&:save!)
+      end
       true
     end
   rescue ActiveRecord::RecordInvalid => e
