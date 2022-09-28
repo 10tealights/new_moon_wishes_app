@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @current_user = User.find(current_user.id)
+    @current_user.destroy!
+    redirect_to root_path, notice: t('.destroyed')
+  end
+
   private
 
   def user_params

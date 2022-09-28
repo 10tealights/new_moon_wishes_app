@@ -1,5 +1,13 @@
-h1 StaticPages#top
-p Find me in app/views/static_pages/top.html.slim
+h1 NEW MOON WISHES
+p トップページです(仮)
+hr
+h2 MENU
+ul
+	li = link_to 'マイプロフィール', profile_path
+	li = link_to '願いごとをする', new_wish_path
+	li = link_to '過去の願いごとを見る', wishes_path
+	li = link_to 'みんなの願いごとを見る', cheers_path
+br
 button.btn.btn-square.loading
 = button_to t('defaults.logout'), logout_path, method: :delete
 = link_to 'LINEログイン', auth_at_provider_path(provider: :line)
