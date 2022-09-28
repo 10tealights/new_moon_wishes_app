@@ -17,6 +17,11 @@ ja:
   users:
     new:
       title: '新規登録'
+  profiles:
+    show:
+      title: 'マイプロフィール'
+    edit:
+      title: 'プロフィール編集'
   user_sessions:
     new:
       title: 'ログイン'

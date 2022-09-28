@@ -1,0 +1,11 @@
+- content_for :title, t('.title')
+h3 #{t('.title')}
+p 登録情報
+p = User.human_attribute_name(:name)
+p = @current_user.name
+- if current_user.crypted_password.present?
+	p = User.human_attribute_name(:account_id)
+	p = @current_user.account_id
+	p = User.human_attribute_name(:email)
+	p = @current_user.email
+p = link_to '編集', edit_profile_path
