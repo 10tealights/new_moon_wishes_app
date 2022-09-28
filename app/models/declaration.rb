@@ -11,4 +11,6 @@ class Declaration < ApplicationRecord
   validates :wish_id, presence: true
 
   enum come_true: { wished: 0, fulfilled: 1, removed: 2 }
+
+  scope :shared_other_declarations, ->(current_user) { order(updated_at: :desc).where.not(user: { id: current_user.id }).where.not(come_true: 'removed').where(is_shared: 'true') }
 end

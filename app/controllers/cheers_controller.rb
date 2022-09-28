@@ -2,7 +2,7 @@ class CheersController < ApplicationController
   def index
     @latest_moon = Moon.latest
     @moon_sign = @latest_moon.zodiac_sign
-    @other_declarations = Declaration.eager_load([{ wish: :zodiac_sign }, { wish: :user }, :tags, :cheers]).order(updated_at: :desc).where.not(user: { id: current_user.id }).where.not(come_true: 'removed').where(is_shared: 'true')
+    @other_declarations = Declaration.eager_load([{ wish: :zodiac_sign }, { wish: :user }, :tags, :cheers]).shared_other_declarations(current_user)
   end
 
   def create
