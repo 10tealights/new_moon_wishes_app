@@ -9,3 +9,4 @@ p = @current_user.name
 	p = User.human_attribute_name(:email)
 	p = @current_user.email
 p = link_to '編集', edit_profile_path
+p = button_to '全情報削除', user_path(@current_user), method: :delete

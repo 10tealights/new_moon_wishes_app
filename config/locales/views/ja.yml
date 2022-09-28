@@ -17,6 +17,8 @@ ja:
   users:
     new:
       title: '新規登録'
+    destroy:
+      destroyed: 'ご利用いただきありがとうございました(情報はすべて削除されました)'
   profiles:
     show:
       title: 'マイプロフィール'
