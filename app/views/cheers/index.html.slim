@@ -1,0 +1,18 @@
+- content_for :title, t('.title')
+h3 #{t('.title')}
+hr
+- @other_declarations.each do |declaration|
+  = declaration.wished? ? "&#127761;".html_safe : "&#127765;".html_safe
+  = declaration.message
+  br
+  p #{declaration.wish.zodiac_sign.name_i18n}新月
+  - declaration.tags.each do |tag|
+    => tag.name
+  br
+  - if declaration.fulfilled?
+    p 成就ずみ！
+  - elsif current_user.cheered?(declaration)
+    p 応援ずみ！(#{declaration.cheers.map(&:id).count})
+  - else
+    = button_to '応援する', cheers_path(declaration_id: declaration.id), method: :post
+  hr
