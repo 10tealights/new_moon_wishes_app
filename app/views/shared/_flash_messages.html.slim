@@ -1,2 +1,3 @@
 - flash.each do |message_type, message|
+  - next if message_type == 'allow_other_host'
   p #{message_type}:#{message}
