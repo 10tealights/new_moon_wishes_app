@@ -1,1 +1,21 @@
 - content_for :title, "#{@current_user.name}さんのプロフィール編集"
+= form_with model: @current_user, url: profile_path do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.label :name
+  = f.text_field :name
+  br
+  - if @current_user.crypted_password.present?
+    = f.label :account_id
+    = f.text_field :account_id
+    br
+    = f.label :email
+    = f.text_field :email
+    br
+  = f.submit '更新する'
+br
+- if @current_user.crypted_password.present?
+  p パスワード変更
+  p 現在登録されているアドレス宛にリセットメールを送信します。
+  = form_with url: password_resets_path do |f|
+    = hidden_field_tag :email, @current_user.email
+    = f.submit 'リセットメールを送る'
