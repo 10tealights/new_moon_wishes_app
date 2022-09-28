@@ -63,3 +63,5 @@ ja:
   cheers:
     index:
       title: 'みんなの願いごと'
+    create:
+      created: '願いごとを応援しました！'
