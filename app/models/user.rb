@@ -18,4 +18,12 @@ class User < ApplicationRecord
   def cheered?(declaration)
     cheered_declarations.map(&:id).include?(declaration.id)
   end
+
+  def self.guest_generate
+    random_value = SecureRandom.hex(3)
+    User.find_or_create_by!(name: 'GUEST', account_id: "guest_#{random_value}", email: "guest_#{random_value}@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+    end
+  end
 end

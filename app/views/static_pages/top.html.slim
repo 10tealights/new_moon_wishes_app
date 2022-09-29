@@ -1,5 +1,6 @@
 h1 NEW MOON WISHES
 p トップページです(仮)
+= button_to '早速願いごとを宣言する', guest_login_path
 hr
 h2 MENU
 ul
@@ -10,4 +11,4 @@ ul
 br
 button.btn.btn-square.loading
 = button_to t('defaults.logout'), logout_path, method: :delete
-= link_to 'LINEログイン', auth_at_provider_path(provider: :line)
+= link_to 'LINEでログイン', auth_at_provider_path(provider: :line)
