@@ -14,6 +14,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+    @user.assign_attributes(name: '', account_id: '', email: '')
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      redirect_to root_path, notice: t('defaults.message.created', item: User.model_name.human)
+    else
+      flash[:alert] = t('defaults.message.not_created', item: User.model_name.human)
+      render :edit
+    end
+  end
+
   def destroy
     @current_user = User.find(current_user.id)
     @current_user.destroy!
