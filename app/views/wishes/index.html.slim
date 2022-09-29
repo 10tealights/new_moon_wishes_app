@@ -17,3 +17,7 @@
   = 'まだ願い事がありません'
   br
   = link_to '願いごとを宣言する', new_wish_path
+
+- if current_user.email.include?('guest_')
+  p この願いごとを記録したままで
+  = link_to '新規登録する', edit_user_path(current_user)
