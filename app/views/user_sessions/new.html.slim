@@ -3,7 +3,7 @@
 
   div
     = f.label t('.login_attributes')
-    = f.text_field :account_id, placeholder: 'どちらかを入力'
+    = f.text_field :email, placeholder: 'メールアドレス'
 
   div
     = f.label User.human_attribute_name(:password) 
