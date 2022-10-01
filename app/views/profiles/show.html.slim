@@ -3,8 +3,17 @@ h3 #{t('.title')}
 p 登録情報
 p = User.human_attribute_name(:name)
 p = @current_user.name
-- if current_user.crypted_password.present?
-	p = User.human_attribute_name(:email)
-	p = @current_user.email
+p = User.human_attribute_name(:email)
+p = @current_user.email.present? ? @current_user.email : '未登録'
 p = link_to '編集', edit_profile_path
 p = button_to '全情報削除', user_path(@current_user), method: :delete
+
+h3 LINE連携
+- if @current_user.authentications.present?
+	= @current_user.line_name
+	= image_tag @current_user.picture_url, size: '50x50'
+
+- else
+	p LINEの連携をします。
+	p 下記手続きをすると、LINE宛に振り返りなどの通知を送信できるようになり、アプリにもLINEでログインができます。
+	= link_to 'LINEでログイン', auth_at_provider_path(provider: :line)
