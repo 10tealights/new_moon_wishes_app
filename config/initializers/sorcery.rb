@@ -226,8 +226,8 @@ Rails.application.config.sorcery.configure do |config|
   config.line.bot_prompt = 'aggressive'
   config.line.user_info_mapping = {
     name: 'displayName',
-    account_id: 'userId',
-    email: 'userId'
+    line_name: 'displayName',
+    picture_url: 'pictureUrl'
   }
 
   
@@ -251,7 +251,7 @@ Rails.application.config.sorcery.configure do |config|
     # Specify username attributes, for example: [:username, :email].
     # Default: `[:email]`
     #
-    user.username_attribute_names = %i[account_id email]
+    # user.username_attribute_names =
 
     # Change *virtual* password attribute, the one which is used until an encrypted one is generated.
     # Default: `:password`
@@ -266,7 +266,7 @@ Rails.application.config.sorcery.configure do |config|
     # Change default email attribute.
     # Default: `:email`
 
-    user.email_attribute_name = :account_id
+    # user.email_attribute_name =
 
     # Change default crypted_password attribute.
     # Default: `:crypted_password`
@@ -567,5 +567,5 @@ Rails.application.config.sorcery.configure do |config|
 
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
-  config.user_class = "User"
+  config.user_class = 'User'
 end

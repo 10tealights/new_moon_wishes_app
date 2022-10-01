@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
     set_current_user
+    @oauth = current_user.authentications.find_by(provider: 'line')
   end
 
   def edit
@@ -24,6 +25,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:name, :account_id, :email)
+    params.require(:user).permit(:name, :email)
   end
 end

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    @user.assign_attributes(name: '', account_id: '', email: '')
+    @user.assign_attributes(name: '', email: '')
   end
 
   def update
@@ -38,6 +38,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :account_id, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

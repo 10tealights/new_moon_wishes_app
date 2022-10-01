@@ -4,13 +4,9 @@
   = f.label :name
   = f.text_field :name
   br
-  - if @current_user.crypted_password.present?
-    = f.label :account_id
-    = f.text_field :account_id
-    br
-    = f.label :email
-    = f.text_field :email
-    br
+  = f.label :email
+  = f.text_field :email
+  br
   = f.submit '更新する'
 br
 - if @current_user.crypted_password.present?
