@@ -45,6 +45,8 @@ ja:
     callback:
       login_success: '%{item}でログイン(連携)しました'
       login_failed: '%{item}でログイン(連携)できませんでした'
+    destroy:
+      destroyed: 'ログイン情報を削除しました'
   wishes:
     index:
       title: '願いごと一覧'

@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
     set_current_user
+    @oauth = current_user.authentications.find_by(provider: 'line')
   end
 
   def edit

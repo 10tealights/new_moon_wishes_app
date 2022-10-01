@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :wishes, only: %i[index new create edit update destroy]
   resources :reflections, only: %i[edit update]
   resources :cheers, only: %i[index create]
+  resources :oauths, only: %i[destroy]
 
   post 'oauth/callback', to: 'oauths#callback'
   get 'oauth/callback', to: 'oauths#callback'

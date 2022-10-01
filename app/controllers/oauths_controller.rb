@@ -24,6 +24,13 @@ class OauthsController < ApplicationController
     end
   end
 
+  def destroy
+    @oauth = current_user.authentications.find(params[:id])
+    @oauth.destroy!
+    current_user.update!(line_name: nil, picture_url: nil)
+    redirect_back fallback_location: profile_path, notice: t('.destroyed')
+  end
+
   private
 
   def auth_params

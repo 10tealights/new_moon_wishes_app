@@ -9,9 +9,12 @@ p = link_to '編集', edit_profile_path
 p = button_to '全情報削除', user_path(@current_user), method: :delete
 
 h3 LINE連携
-- if @current_user.authentications.present?
+- if @oauth.present?
 	= @current_user.line_name
 	= image_tag @current_user.picture_url, size: '50x50'
+	- if @current_user.crypted_password.present? && @current_user.email.present?
+		= button_to 'LINE連携解除', oauth_path(@oauth.id), method: :delete
+
 
 - else
 	p LINEの連携をします。
