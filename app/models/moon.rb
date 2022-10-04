@@ -1,5 +1,6 @@
 class Moon < ApplicationRecord
   has_many :wishes
+  has_many :wished_users , through: :wishes, source: :user
   belongs_to :zodiac_sign
 
   validates :newmoon_time, presence: true
