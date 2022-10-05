@@ -14,7 +14,20 @@ h3 LINE連携
 	= image_tag @current_user.picture_url, size: '50x50'
 	- if @current_user.crypted_password.present? && @current_user.email.present?
 		= button_to 'LINE連携解除', oauth_path(@oauth.id), method: :delete
+	
+	- if @current_user.need_newmoon_msg?
+		p 新月の日に通知する
+		= button_to '解除', line_notification_path(@current_user, need_newmoon_msg: :false), method: :patch
+	- else
+		p 新月の日に通知しない
+		= button_to '通知', line_notification_path(@current_user, need_newmoon_msg: :true), method: :patch
 
+	- if @current_user.need_fullmoon_msg?
+		p 満月の日に通知する
+		= button_to '解除', line_notification_path(@current_user, need_fullmoon_msg: :false), method: :patch
+	- else
+		p 満月の日に通知しない
+		= button_to '通知', line_notification_path(@current_user, need_fullmoon_msg: :true), method: :patch
 
 - else
 	p LINEの連携をします。

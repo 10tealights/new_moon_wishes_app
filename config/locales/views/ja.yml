@@ -74,3 +74,6 @@ ja:
       title: 'みんなの願いごと'
     create:
       created: '願いごとを応援しました！'
+  line_notifications:
+    update:
+      updated: 'LINE通知設定を変更しました'
