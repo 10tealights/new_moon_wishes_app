@@ -69,6 +69,8 @@ gem 'line-bot-api'
 
 # Active Job
 gem 'delayed_job_active_record'
+# cron
+gem 'whenever', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
