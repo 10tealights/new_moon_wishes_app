@@ -26,7 +26,6 @@ class User < ApplicationRecord
   end
 
   def change_notification_status(params)
-    debugger
     if params[:need_newmoon_msg]
       self.need_newmoon_msg = params[:need_newmoon_msg].include?('true') ? :true : :false
     elsif params[:need_fullmoon_msg]
