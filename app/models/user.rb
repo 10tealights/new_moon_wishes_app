@@ -24,4 +24,13 @@ class User < ApplicationRecord
       user.password_confirmation = user.password
     end
   end
+
+  def change_notification_status(params)
+    if params[:need_newmoon_msg]
+      self.need_newmoon_msg = params[:need_newmoon_msg].include?('true') ? :true : :false
+    elsif params[:need_fullmoon_msg]
+      self.need_fullmoon_msg = params[:need_fullmoon_msg].include?('true') ? :true : :false
+    end
+    self.save
+  end
 end

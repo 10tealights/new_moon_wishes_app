@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :reflections, only: %i[edit update]
   resources :cheers, only: %i[index create]
   resources :oauths, only: %i[destroy]
+  resources :line_notifications, only: %i[update]
 
   post 'oauth/callback', to: 'oauths#callback'
   get 'oauth/callback', to: 'oauths#callback'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_30_070525) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_04_133018) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -55,6 +55,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_070525) do
     t.index ["wish_id"], name: "index_declarations_on_wish_id"
   end
 
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
   create_table "moons", force: :cascade do |t|
     t.bigint "zodiac_sign_id", null: false
     t.datetime "newmoon_time", null: false
@@ -83,6 +98,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_070525) do
     t.integer "access_count_to_reset_password_page", default: 0
     t.string "picture_url"
     t.string "line_name"
+    t.boolean "need_newmoon_msg", default: false, null: false
+    t.boolean "need_fullmoon_msg", default: false, null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 

@@ -47,5 +47,8 @@ module NewMoonWishesApp
 
     # FormObjectの読み込み
     config.autoload_paths += Dir.glob("#{config.root}/app/models/form/**/*")
+
+    # Active JobのアダプタにDelayed Jobを設定
+    config.active_job.queue_adapter = :delayed_job
   end
 end
