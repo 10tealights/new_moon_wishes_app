@@ -5,11 +5,11 @@ namespace :moon_notification do
     fullmoon = Moon.preload(:zodiac_sign).find_by(fullmoon_time: Time.current.all_day)
 
     if newmoon.present?
-      target_users = newmoon.wished_users.preload(:authentications).where(need_newmoon_msg: :true)
-      send_line_notifications(target_users, newmoon, '新月')
+      target_users = User.preload(:authentications).where(need_newmoon_msg: :true)
+      send_line_notifications(target_users, newmoon, '新月') if target_users.present?
     elsif fullmoon.present?
       target_users = fullmoon.wished_users.preload(:authentications).where(need_fullmoon_msg: :true)
-      send_line_notifications(target_users, fullmoon, '満月')
+      send_line_notifications(target_users, fullmoon, '満月') if target_users.present?
     else
       p '該当なし'
     end
