@@ -12,4 +12,5 @@ html
   body
     = render 'shared/flash_messages'
     = yield
-    = render 'shared/bottom_navbar'
+    - if logged_in?
+      = render 'shared/bottom_navbar'
