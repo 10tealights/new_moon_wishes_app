@@ -1,20 +1,31 @@
-= form_with model: user do |f|
+= form_with model: user, class: 'w-full px-5 md:w-3/5 md:px-0' do |f|
   = render 'shared/error_messages', object: f.object
-
-  div
-    = f.label :name
-    = f.text_field :name, placeholder: '30文字以内で入力'
-
-  div
-    = f.label :email
-    = f.text_field :email, placeholder: 'お使いのメールアドレス'
-  div
-    = f.label :password
-    = f.password_field :password, placeholder: 'パスワード(7文字以上)'
-
-  div
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, placeholder: 'パスワード(確認用)'
-
-  div
-    = f.submit '登録'
+  .form-control
+    label.label
+      span.label-text.text-indigo-900
+        = f.label :name
+      span.label-text-alt.text-indigo-900
+        | 必須
+    = f.text_field :name, placeholder: '30文字以内でご入力ください', class: "input input-primary border-opacity-20"
+  .form-control
+    label.label
+      span.label-text.text-indigo-900
+        = f.label :email
+      span.label-text-alt.text-indigo-900
+        | 必須
+    = f.text_field :email, placeholder: '受信可能なものをご入力ください', class: "input input-primary border-opacity-20"
+  .form-control
+    label.label
+      span.label-text.text-indigo-900
+        = f.label :password
+      span.label-text-alt.text-indigo-900
+        | 必須
+    = f.password_field :password, placeholder: '7文字以上でご入力ください', class: "input input-primary border-opacity-20"
+  .form-control
+    label.label
+      span.label-text.text-indigo-900
+        = f.label :password_confirmation
+      span.label-text-alt.text-indigo-900
+        | 必須
+    = f.password_field :password_confirmation, placeholder: '確認用としてもう一度ご入力ください', class: "input input-primary border-opacity-20"
+  = f.submit '登録', class: "btn btn-wide w-full mt-6"
