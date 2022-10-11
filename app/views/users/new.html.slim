@@ -1,3 +1,15 @@
 - content_for :title, t('.title')
-= render 'shared/user_form', user: @user
-p すでに登録済みの方はログイン
+.container.mx-auto.text-indigo-900
+  .px-5.border-opacity-50
+    .grid.place-items-center
+      h1.place-items-center.my-6.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        = t('.title')
+    .grid.place-items-center
+      = render 'shared/user_form', user: @user
+    .divider.px-10.pt-10.pb-8.text-gray-400
+      | OR
+    .grid.place-items-center
+      p.text-sm LINEアカウントでも登録いただけます
+      = link_to auth_at_provider_path(provider: :line) do
+        = image_tag 'btn_login_base.png', class: "w-36 mt-2"
+      = link_to 'すでにアカウントをお持ちの方', login_path, class: "link link-primary mt-6"
