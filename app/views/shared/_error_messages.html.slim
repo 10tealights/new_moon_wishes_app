@@ -1,4 +1,5 @@
 - if object.errors.present?
-  ul
-    - object.errors.full_messages.each do |message|
-        li = message
+  - object.errors.full_messages.each do |message|
+    ul
+      li.text-sm.text-center.text-indigo-700
+        = message
