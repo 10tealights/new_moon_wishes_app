@@ -1,7 +1,7 @@
 = fb.fields_for :declarations do |f|
-  div.hidden id="js-add-declaration-form-#{f.index}"
-		= render 'shared/error_messages', object: f.object
+  div class="#{hidden_if('new')}" id="js-add-declaration-form-#{f.index}"
 		.divider.mt-3.mb-1.text-sm
+		= render 'shared/error_messages', object: f.object
 		.flex.justify-between.items-center
 			.form-control
 				label.swap.swap-flip.text-xl.pl-1.pr-2.py-2.mt-3
