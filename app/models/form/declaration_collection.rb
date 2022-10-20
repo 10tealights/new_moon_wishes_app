@@ -5,7 +5,7 @@ class Form::DeclarationCollection
   include ActiveModel::Validations
   include ActiveModel::Validations::Callbacks
 
-  DEFAULT_ITEM_COUNT = 2
+  DEFAULT_ITEM_COUNT = 10
 
   attr_accessor :wish, :memo, :declarations
 
