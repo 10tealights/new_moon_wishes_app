@@ -42,8 +42,8 @@ class Form::DeclarationCollection
 
         declaration.wish_id = @wish.id
         return false unless declaration.valid?
+        declaration.save!
       end
-      declarations.each(&:save!)
       true
     end
     rescue ActiveRecord::RecordInvalid => e
