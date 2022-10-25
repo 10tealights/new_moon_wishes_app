@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_133018) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_25_081949) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_133018) do
     t.bigint "wish_id", null: false
     t.string "message", null: false
     t.integer "come_true", default: 0, null: false
-    t.boolean "is_shared", default: false, null: false
+    t.boolean "is_shared", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["wish_id"], name: "index_declarations_on_wish_id"

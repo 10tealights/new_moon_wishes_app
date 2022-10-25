@@ -5,13 +5,13 @@
 		.flex.justify-between.items-center
 			.form-control
 				label.swap.swap-flip.text-xl.pl-1.pr-2.py-2.mt-3
-					= f.check_box :is_shared, {}, 1, 0 
+					= f.check_box :is_shared, { checked: f.object.is_shared }, 'true', 'false'
 					.swap-on
 						.tooltip[data-tip="公開"]
-							i.fas.fa-lock.text-indigo-400
+							i.fas.fa-lock-open.text-indigo-400
 					.swap-off
 						.tooltip[data-tip="非公開"]
-							i.fas.fa-lock-open.text-indigo-400
+							i.fas.fa-lock.text-indigo-400
 			.form-control.text-indigo-800.mt-3.w-full
 				= f.text_area :message, placeholder: '願いごと', class: "textarea leading-tight border-opacity-10 bg-indigo-50 focus:outline-none"
 		.flex.justify-start.mt-2
