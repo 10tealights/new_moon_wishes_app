@@ -7,8 +7,8 @@
   .grid.place-items-center
 		.rounded-box.bg-indigo-50.mx-12.my-5.p-5.max-w-lg
 			p.text-sm.text-center.text-indigo-700 
-				| 【○○座新月おすすめテーマ】
+				| 【#{@latest_newmoon.zodiac_sign.name_i18n}新月おすすめテーマ】
 				br
-				| パートナーシップ・対人関係・美意識・ファッション・メイク・デザイン・インテリア
+				= @keywords.join('・')
   .grid.place-items-center
     = render 'shared/declarations_form', form: @form

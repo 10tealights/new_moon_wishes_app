@@ -4,6 +4,8 @@ class WishesController < ApplicationController
   end
 
   def new
+    @latest_newmoon = Moon.latest
+    @keywords = Trait.where(zodiac_sign_id: @latest_newmoon.zodiac_sign_id).map(&:keyword).shuffle
     @form = Form::DeclarationCollection.new(wish: current_user.wishes.build)
   end
 
