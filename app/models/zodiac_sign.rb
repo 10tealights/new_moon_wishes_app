@@ -1,6 +1,7 @@
 class ZodiacSign < ApplicationRecord
   has_many :moons
   has_many :wishes, through: :moons
+  has_many :traits
 
   validates :name, presence: true, uniqueness: true
 
