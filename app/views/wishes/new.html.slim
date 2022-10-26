@@ -1,2 +1,14 @@
 - content_for :title, t('.title')
-= render 'shared/declarations_form', form: @form
+.container.mx-auto
+  .grid.place-items-center
+    h1.place-items-center.mt-6.mb-2.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+    	| MY DECLARATIONS
+	p.text-sm.text-indigo-400 願いごとを宣言しましょう(2~10個)
+  .grid.place-items-center
+		.rounded-box.bg-indigo-50.mx-12.my-5.p-5.max-w-lg
+			p.text-sm.text-center.text-indigo-700 
+				| 【#{@latest_newmoon.zodiac_sign.name_i18n}新月おすすめテーマ】
+				br
+				= @keywords.join('・')
+  .grid.place-items-center
+    = render 'shared/declarations_form', form: @form

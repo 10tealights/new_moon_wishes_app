@@ -5,7 +5,7 @@ class Form::DeclarationCollection
   include ActiveModel::Validations
   include ActiveModel::Validations::Callbacks
 
-  DEFAULT_ITEM_COUNT = 2
+  DEFAULT_ITEM_COUNT = 10
 
   attr_accessor :wish, :memo, :declarations
 
@@ -42,8 +42,8 @@ class Form::DeclarationCollection
 
         declaration.wish_id = @wish.id
         return false unless declaration.valid?
+        declaration.save!
       end
-      declarations.each(&:save!)
       true
     end
     rescue ActiveRecord::RecordInvalid => e

@@ -1,15 +1,36 @@
 - content_for :title, t('.title')
-/= #{@form.wish.zodiac_sign.name_i18n}
-= form_with model: @form, url: reflection_path, method: :patch do |fb|
-  = render 'shared/error_messages', object: fb.object
-  h3 #{fb.object.wish.zodiac_sign.name_i18n}新月(#{l(fb.object.wish.moon.newmoon_time)})
-  = fb.fields_for :declarations do |f|
-    = render 'shared/error_messages', object: f.object
-    div
-      = f.object.message
-      br
-      => f.collection_radio_buttons :come_true, Declaration.come_trues_i18n, :first, :last, { checked: f.object.come_true }
-      hr
-  = fb.text_area :memo, value: fb.object.wish.memo, placeholder: '感想などのメモが記録できます'
-  div
-    = fb.submit '振り返りおわり'
+.container.mx-auto
+  .grid.place-items-center
+    h1.place-items-center.mt-6.mb-2.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+    	| REFLECTIONS
+  .grid.place-items-center
+	  p.text-sm.text-indigo-400 願いごとを振り返ってみましょう
+  .grid.place-items-center.mb-10
+    .card.shadow-lg.mt-5.w-4/5.lg:w-3/5.xl:max-w-2xl
+      = form_with model: @form, url: reflection_path, method: :patch do |fb|
+        = render 'shared/error_messages', object: fb.object
+        .p-1.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+          p.text-indigo-50.text-center
+            | #{fb.object.wish.zodiac_sign.name_i18n}新月
+          p.text-indigo-50.text-center.text-xs
+            | (#{l(fb.object.wish.moon.newmoon_time)})
+        .p-2.text-indigo-700
+          = fb.fields_for :declarations do |f|
+            = render 'shared/error_messages', object: f.object
+            .flex
+              p.mr-1 &#11088;
+              .flex-row
+                p.mt-1.leading-tight
+                  | #{f.object.message}
+            .form-control.flex-row.justify-evenly.mt-2.mb-1
+              = f.collection_radio_buttons :come_true, Declaration.come_trues_i18n, :first, :last, { checked: f.object.come_true } do |b|
+                => b.label do
+                  = b.radio_button(class: "hidden peer")
+                  = b.label(class: "badge badge-lg badge-outline opacity-50 cursor-pointer peer-checked:border-indigo-800 peer-checked:text-indigo-800 peer-checked:opacity-100 peer-checked:bg-gradient-to-r from-purple-100 via-indigo-100 to-blue-100")
+            .divider.m-0
+        .px-3.pb-2
+          = fb.text_area :memo, value: fb.object.wish.memo, size: "20x5", placeholder: '感想などのメモが記録できます', class: "p-2 w-full text-indigo-900 bg-indigo-50 rounded text-sm"
+          /- if fb.object.memo.present?
+            p.text-xs = safe_join(wish.memo.split('\n'), tag(:br))
+        .card-actions.justify-center.mb-4
+          = fb.submit '振り返りを終わる', class: "button btn btn-sm btn-outline font-light"

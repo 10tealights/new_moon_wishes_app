@@ -8,7 +8,7 @@ class ReflectionsController < ApplicationController
     set_wish
     @form = Form::DeclarationCollection.new(current_user, wish_params, wish: @wish)
     if @form.update(wish_params)
-      redirect_to edit_reflection_path(@wish), notice: t('.updated')
+      redirect_to wishes_path, notice: t('.updated')
     else
       flash[:alert] = t('.not_updated')
       render :edit
