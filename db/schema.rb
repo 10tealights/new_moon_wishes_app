@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_081949) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_26_073126) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -85,6 +85,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_081949) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "traits", force: :cascade do |t|
+    t.string "keyword"
+    t.bigint "zodiac_sign_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["zodiac_sign_id"], name: "index_traits_on_zodiac_sign_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.string "crypted_password"
@@ -127,6 +135,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_081949) do
   add_foreign_key "declaration_tags", "tags"
   add_foreign_key "declarations", "wishes"
   add_foreign_key "moons", "zodiac_signs"
+  add_foreign_key "traits", "zodiac_signs"
   add_foreign_key "wishes", "moons"
   add_foreign_key "wishes", "users"
 end
