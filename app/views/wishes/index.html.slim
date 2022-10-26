@@ -8,7 +8,7 @@
   .grid.place-items-center.mb-10
     - if @wishes.present?
       - @wishes.each do |wish|
-        .card.shadow-lg.mt-5.w-4/5.lg:w-3/5
+        .card.shadow-lg.mt-5.w-4/5.lg:w-3/5.xl:max-w-2xl
           .p-1.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
             p.text-indigo-50.text-center
               | #{wish.zodiac_sign.name_i18n}新月
@@ -16,8 +16,8 @@
               | (#{l(wish.moon.newmoon_time)})
           .p-2.text-indigo-700
             - wish.declarations.each do |dec|
-              .flex
-                p.mr-1 &#11088;
+              div class="flex rounded #{highlight(dec.come_true)}"
+                p.mx-1 #{fullmoon_emoji_if(dec)}
                 .flex-row
                   p.mt-1.leading-tight
                     | #{dec.message}
@@ -31,7 +31,8 @@
               .divider.m-0
             .p-2.mt-2.mb-4.bg-indigo-50.rounded
               - if wish.memo.present?
-                p.text-xs = wish.memo
+                .text-xs
+                  = safe_join(wish.memo.split("\n"), tag(:br))
               - else
                 p.text-xs.text-center
                   | 

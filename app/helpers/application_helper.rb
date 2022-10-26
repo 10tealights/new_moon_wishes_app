@@ -8,4 +8,17 @@ module ApplicationHelper
   def hidden_if(action)
     return 'hidden' if params[:action] == action
   end
+
+  def fullmoon_emoji_if(declaration)
+    declaration.fulfilled? ? "&#127765;".html_safe : "&#127761;".html_safe
+  end
+
+  def highlight(come_true)
+    case come_true
+    when 'fulfilled'
+      'bg-gradient-to-b from-yellow-200 via-yellow-100 to-yellow-50'
+    when 'removed'
+      'opacity-60'
+    end
+  end
 end
