@@ -30,3 +30,10 @@ Tag.create!(
     { id: 14, name: 'マインド' }
   ]
 )
+
+CSV.foreach('db/csv/traits.csv', headers: true) do |row|
+  Trait.create!(
+    keyword: row['keyword'],
+    zodiac_sign_id: row['zodiac_sign_id']
+  )
+end
