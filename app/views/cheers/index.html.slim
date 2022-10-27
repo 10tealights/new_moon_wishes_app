@@ -1,18 +1,33 @@
 - content_for :title, t('.title')
-h3 #{t('.title')}
-hr
-- @other_declarations.each do |declaration|
-  = declaration.wished? ? "&#127761;".html_safe : "&#127765;".html_safe
-  = declaration.message
-  br
-  p #{declaration.wish.zodiac_sign.name_i18n}新月
-  - declaration.tags.each do |tag|
-    => tag.name
-  br
-  - if declaration.fulfilled?
-    p 成就ずみ！
-  - elsif current_user.cheered?(declaration)
-    p 応援ずみ！(#{declaration.cheers.map(&:id).count})
-  - else
-    = button_to '応援する', cheers_path(declaration_id: declaration.id), method: :post
-  hr
+.container.mx-auto
+  .grid.place-items-center
+    h1.place-items-center.mt-6.mb-2.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+    	| CHEER DECLARATIONS
+  .grid.place-items-center.my-6
+    .btn-group.grid.grid-cols-2
+      button.btn.btn-sm.btn-outline.text-indigo-900.hover:bg-indigo-800[onclick="toggleNavbar('wished', 'fulfilled')"]
+        | 叶えたい願い
+      button.btn.btn-sm.btn-outline.text-indigo-900.hover:bg-indigo-800[onclick="toggleNavbar('fulfilled', 'wished')"]
+        | 叶った願い
+  div id="wished" class="flex flex-col"
+    .grid.place-items-center.mb-5
+	    p.text-sm.text-indigo-400 他の人の願いを応援しよう
+    .grid.px-2.mb-10.mx-auto.md:w-4/5.lg:w-3/5
+      = render partial: 'other_declaration', collection: @other_wished_declarations
+      - if @other_wished_declarations.blank?
+        .text-indigo-900.my-10
+          | まだ願いがないようです#{"&#128532;".html_safe}
+  div id="fulfilled" class="hidden flex-col"
+    .grid.place-items-center.mb-5
+	    p.text-sm.text-indigo-400 他の人はこんな願いを叶えました
+    .grid.px-2.mb-10.mx-auto.md:w-4/5.lg:w-3/5
+      = render partial: 'other_declaration', collection: @other_fulfilled_declarations
+      - if @other_fulfilled_declarations.blank?
+        .text-indigo-900.my-10
+          | まだ叶った願いがないようです#{"&#128532;".html_safe}
+
+javascript:
+  function toggleNavbar(openMenuId, closeMenuId) {
+    document.getElementById(openMenuId).classList.replace('hidden', 'flex');
+    document.getElementById(closeMenuId).classList.replace('flex', 'hidden');
+  }

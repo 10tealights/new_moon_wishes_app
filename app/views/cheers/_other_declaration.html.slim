@@ -1,0 +1,31 @@
+.flex.items-center.my-1.rounded.shadow-md.p-2.shadow-indigo-900/10.hover:bg-indigo-50
+  .content-center.mx-1.text-xl
+    = fullmoon_emoji_if(other_declaration)
+  .flex-grow.mr-1
+    .text-sm.text-indigo-900.leading-tight
+      = other_declaration.message
+    .flex.flex-wrap
+      .badge.badge-xs.mt-1.mr-1.bg-indigo-100.text-indigo-400.border-opacity-20.shrink-0
+        | #{other_declaration.wish.zodiac_sign.name_i18n}新月
+      - other_declaration.tags.each do |tag|
+        .badge.badge-xs.mt-1.mr-1.bg-indigo-100.text-indigo-400.border-opacity-20.shrink-0
+          => tag.name
+  .flex.flex-col.items-center.w-20.shrink-0.pl-2.border-l
+    - if other_declaration.fulfilled?
+      .text-xs.text-indigo-700
+        | #{I18n.l(other_declaration.updated_at, format: :only_date)}成就
+      .text-xs.text-indigo-300.text-center
+        | #{other_declaration.cheers.map(&:id).count}人が応援
+        br
+        | しました
+    - elsif current_user.cheered?(other_declaration)
+      .text-xl
+        = "&#127775;".html_safe
+      .text-xs.text-indigo-700
+        | #{other_declaration.cheers.map(&:id).count}人が応援!
+    - else
+      = button_to cheers_path(other_declaration_id: other_declaration.id), method: :post, class: "group"
+        .text-xl.group-hover:animate-spin
+          = "&#11088;".html_safe
+        .text-xs.text-indigo-700.group-hover:font-bold
+          | 応援する

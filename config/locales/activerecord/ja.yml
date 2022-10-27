@@ -36,3 +36,4 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M"
       only_time: "%H:%M"
+      only_date: "%m/%d"
