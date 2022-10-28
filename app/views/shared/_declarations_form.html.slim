@@ -1,7 +1,7 @@
 = form_with model: form, class: 'w-full px-5 sm:px-0 lg:w-4/5 max-w-2xl' do |fb|
   = render 'shared/error_messages', object: fb.object
   = render 'shared/one_declaration_form', fb: fb
-  div class="#{hidden_if('edit')} flex justify-center items-center link link-hover mt-8 text-sm text-indigo-400" id="js-display-declaration-button" onclick="displayDeclarationForm(event)"
+  div class="#{hidden_if('new')} justify-center items-center link link-hover mt-8 text-sm text-indigo-400" id="js-display-declaration-button" onclick="displayDeclarationForm(event)"
     .fas.fa-plus-circle.pr-1
     | 願いごとを追加する
   = fb.submit '願いごとをする', class: "btn btn-wide w-full mt-8 mb-20"
