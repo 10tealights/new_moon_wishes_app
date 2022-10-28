@@ -1,4 +1,4 @@
-.navbar.bg-indigo-50.text-indigo-900
+.flex.items-center.p-1.md:p-2.w-full.h-10.md:h-14.bg-indigo-50.text-indigo-900
   .flex-1.px-3
     = link_to logged_in? ? wishes_path : root_path do 
       text-lg.font-bold.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
@@ -7,39 +7,39 @@
     .flex.justify-end.hidden.md:flex
       .flex.items-stretch
         = link_to new_wish_path do
-          label.btn.btn-ghost.rounded-btn.flex-col
-            i.fas.fa-moon.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
-            | 願いごと
+          label.btn.btn-ghost.rounded-btn.flex-col.font-normal
+            i.fas.fa-moon.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            .text-xs 願いごと
         = link_to wishes_path do
-          label.btn.btn-ghost.rounded-btn.flex-col
-            i.fas.fa-calendar-alt.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
-            | 振り返り
+          label.btn.btn-ghost.rounded-btn.flex-col.font-normal
+            i.fas.fa-calendar-alt.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            .text-xs 振り返り
         = link_to cheers_path do
-          label.btn.btn-ghost.rounded-btn.flex-col
-            i.fas.fa-user-friends.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
-            | 願いを応援
+          label.btn.btn-ghost.rounded-btn.flex-col.font-normal
+            i.fas.fa-user-friends.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            .text-xs 願いを応援
         = link_to profile_path do
-          label.btn.btn-ghost.rounded-btn.flex-col
-            i.fas.fa-info-circle.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
-            | プロフィール
+          label.btn.btn-ghost.rounded-btn.flex-col.font-normal
+            i.fas.fa-info-circle.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            .text-xs プロフィール
         = button_to logout_path, method: :delete do
-          span.btn.btn-ghost.rounded-btn.flex-col
-            i.fas.fa-sign-out-alt.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
-            | ログアウト
+          span.btn.btn-ghost.rounded-btn.flex-col.font-normal
+            i.fas.fa-sign-out-alt.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            .text-xs ログアウト
   - else
     .flex.justify-end
-      .flex.items-stretch
+      .flex.items-center
         = link_to login_path do
-          label.btn.btn-ghost.rounded-btn
+          label.btn.btn-sm.btn-ghost.rounded-btn.px-2
             | ログイン
         = link_to root_path do
-          label.btn.btn-ghost.rounded-btn
+          label.btn.btn-sm.btn-ghost.rounded-btn.px-2
             | 使い方
         = link_to new_user_path do
-          label.btn.btn-ghost.rounded-btn
+          label.btn.btn-sm.btn-ghost.rounded-btn.px-2
             | 新規登録
         .dropdown.dropdown-end.menu-compact
-          label.btn.btn-ghost.rounded-btn[tabindex="0"]
+          label.btn.btn-sm.btn-ghost.rounded-btn[tabindex="0"]
             i.fas.fa-info-circle
           ul.menu.dropdown-content.p-2.shadow.bg-indigo-50.rounded.w-52.mt-4[tabindex="0"]
             li
