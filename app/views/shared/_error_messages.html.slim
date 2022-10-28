@@ -1,5 +1,6 @@
 - if object.errors.present?
   - object.errors.full_messages.each do |message|
-    ul
-      li.text-sm.text-center.text-indigo-700
-        = message
+    ul.my-2
+      li.text-sm.text-center.text-red-400
+        i.far.fa-sad-tear.mx-1
+        | #{message}
