@@ -1,6 +1,6 @@
 = fb.fields_for :declarations do |f|
-  div class="#{hidden_if('new')}" id="js-add-declaration-form-#{f.index}"
-		.divider.mt-3.mb-1.text-sm
+  div class="hidden" id="js-add-declaration-form-#{f.index}"
+		.divider.mt-3.mb-1
 		= render 'shared/error_messages', object: f.object
 		.flex.justify-between.items-center
 			.form-control

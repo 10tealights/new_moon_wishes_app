@@ -4,17 +4,17 @@ class WishesController < ApplicationController
   end
 
   def new
-    @latest_newmoon = Moon.latest
-    @keywords = Trait.where(zodiac_sign_id: @latest_newmoon.zodiac_sign_id).map(&:keyword).shuffle
+    set_zodiac_keywords
     @form = Form::DeclarationCollection.new(wish: current_user.wishes.build)
   end
 
   def create
+    set_zodiac_keywords
     @form = Form::DeclarationCollection.new(current_user, declaration_collection_params)
     if @form.save
       redirect_to wishes_path, notice: t('.created')
     else
-      flash[:alert] = t('.not_created')
+      flash.now[:alert] = t('.not_created')
       render :new
     end
   end
@@ -28,7 +28,7 @@ class WishesController < ApplicationController
     if @form.update(tag_params)
       redirect_to wishes_path, notice: t('.created')
     else
-      flash[:alert] = t('.not_created')
+      flash.now[:alert] = t('.not_created')
       render :edit
     end
   end
@@ -40,6 +40,11 @@ class WishesController < ApplicationController
   end
 
   private
+
+  def set_zodiac_keywords
+    @latest_newmoon = Moon.latest
+    @keywords = Trait.where(zodiac_sign_id: @latest_newmoon.zodiac_sign_id).map(&:keyword).shuffle
+  end
 
   def declaration_collection_params
     params
