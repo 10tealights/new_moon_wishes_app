@@ -1,6 +1,6 @@
 .flex.items-center.p-1.md:p-2.w-full.h-10.md:h-14.bg-indigo-50.text-indigo-900
   .flex-1.px-3
-    = link_to logged_in? ? wishes_path : root_path do 
+    = link_to logged_in? ? menu_path : root_path do 
       text-lg.font-bold.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
         | CLARUS
   - if logged_in?
@@ -32,7 +32,7 @@
         = link_to login_path do
           label.btn.btn-sm.btn-ghost.rounded-btn.px-2
             | ログイン
-        = link_to root_path do
+        /= link_to root_path do
           label.btn.btn-sm.btn-ghost.rounded-btn.px-2
             | 使い方
         = link_to new_user_path do
