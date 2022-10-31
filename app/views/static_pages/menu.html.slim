@@ -1,0 +1,49 @@
+- content_for :title, t('.title')
+.container.mx-auto.text-indigo-900
+  .px-5.border-opacity-50
+    .grid.place-items-center
+      h1.place-items-center.my-6.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | NEXT NEWMOON?
+    .grid.place-items-center
+			.card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
+				= image_tag 'menu_eyecatch.jpg'
+				.card-body.p-5.text-center
+					p.text-sm
+						| 次の新月は、#{l(next_newmoon.newmoon_time)}に#{next_newmoon.zodiac_sign.name_i18n}で起こります。
+    .grid.place-items-center
+      h1.place-items-center.my-6.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | MENU
+    .grid.place-items-center
+			= link_to new_wish_path do
+				button.btn.w-72.mb-5
+					| 願いごとを宣言する
+			= link_to wishes_path do
+				button.btn.w-72.mb-5
+					| 過去の願いごとを見る
+			= link_to cheers_path do
+				button.btn.w-72.mb-5
+					| みんなの願いごとを見る
+			- if current_user.authentications.blank?
+				= link_to profile_path do
+					button.btn.w-72.mb-5
+						| LINEアカウントの連携
+
+input#my-modal-4.modal-toggle[type="checkbox"]
+label.modal.cursor-pointer[for="my-modal-4"]
+  label.modal-box.relative[for=""]
+    h3.text-lg.font-bold
+      | パスワードリセット
+    p.text-sm.py-4
+      | 登録済みのメールアドレスをご入力いただき、送信ボタンを押してください。LINEログイン連携済みの方は、LINEアカウントにてログインください。
+    = form_with url: password_resets_path do |f|
+      .form-control
+        label.label
+          span.label-text
+            = User.human_attribute_name(:email)
+      .form-control
+        .input-group
+          = f.text_field :email, class: "input input input-bordered w-full", type: 'text', placeholder: 'こちらにご入力ください'
+          /= f.submit '送信', class: "button btn btn-square"
+          = button_tag type: 'submit', class: 'button btn btn-square w-24' do
+            i.fas.fa-paper-plane.pr-1
+            | 送信

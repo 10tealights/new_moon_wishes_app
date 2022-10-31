@@ -1,14 +1,88 @@
-h1 NEW MOON WISHES
-p トップページです(仮)
-= button_to '早速願いごとを宣言する', guest_login_path
-hr
-h2 MENU
-ul
-	li = link_to 'マイプロフィール', profile_path
-	li = link_to '願いごとをする', new_wish_path
-	li = link_to '過去の願いごとを見る', wishes_path
-	li = link_to 'みんなの願いごとを見る', cheers_path
-br
-button.btn.btn-square.loading
-= button_to t('defaults.logout'), logout_path, method: :delete
-= link_to 'LINEでログイン', auth_at_provider_path(provider: :line)
+.hero.max-h-full.lg:max-h-screen
+	= image_tag 'top_eyecatch_moon.jpg'
+	.hero-overlay.bg-opacity-10.sm:bg-opacity-30
+	.hero-content.text-center.text-neutral-content
+		.max-w-lg.lg:max-w-xl
+			h1.mb-5.text-xl.md:text-2xl.lg:text-3xl.font-bold
+				| 心の中にあるその願い、<br>ここで"言葉"にしてみませんか
+			p.mb-5.text-indigo-100.md:text-lg.hidden.sm:flex
+				| 新月に合わせて、自分のやりたいこと・叶えたいこと・もうやめたいことなどを「願いごと」として宣言。半年後、あなたのLINEへ振り返りの時期であることをお知らせします。
+			= button_to guest_login_path do
+				button.btn.border-none.hidden.sm:inline-block.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700.hover:bg-gradient-to-r.hover:from-purple-600.hover:via-indigo-500.hover:to-blue-600
+					| 今から言葉にしてみる
+.px-5.pt-6.mx-auto.bg-indigo-50.sm:hidden
+	.items-center.lg:flex
+		.w-full.lg:w-1/2
+			p.mt-2.text-sm.md:text-md.text-indigo-800
+				| 新月に合わせて、自分のやりたいこと・叶えたいこと・もうやめたいことなどを「願いごと」として宣言。半年後、あなたのLINEへ振り返りの時期であることをお知らせします。
+			= button_to guest_login_path do
+				button.btn.btn-wide.w-full.mt-6.border-none.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700.hover:bg-gradient-to-r.hover:from-purple-600.hover:via-indigo-500.hover:to-blue-600
+					| 今から言葉にしてみる
+
+section.bg-indigo-50
+	.container.px-6.pt-14.pb-4.mx-auto
+		.text-xl.font-semibold.text-center.text-indigo-900.capitalize.lg:text-2xl.dark:text-white
+			| このアプリでできること 
+	.grid.grid-cols-1.gap-2.mt-4.xl:mt-6.xl:gap-3.md:grid-cols-2.sm:mx-14
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
+			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
+				i.fas.fa-feather-alt.text-2xl.w-8.pt-1
+			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
+				| 新月に
+				br
+				| 願いごとを宣言
+			p.text-indigo-800.dark:text-gray-300
+				| 新月の内容に合わせて、願いごとをアプリ上で宣言できます。
+				br
+				| 宣言した願いごとについて、アファメーションもできます(Coming Soon)。
+			figure
+				= image_tag 'top_declaration.png', class:"mt-2 w-48"
+		
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
+			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
+				i.fas.fa-calendar-check.text-2xl.w-8.pt-1
+			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
+				| 願いの半年後、
+				br
+				| 達成状況のふりかえり
+			p.text-indigo-800.dark:text-gray-300
+				| 願いごとを宣言した後、叶っているのかどうかの振り返りができます。個人的なメモ(非公開)も記録できます。
+			figure
+				= image_tag 'top_reflection.png', class:"mt-2 w-48"
+		
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
+			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
+				i.fas.fa-bell.text-2xl.w-8.pt-1
+			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
+				| LINE連携で
+				br
+				| 振り返りの時期を通知
+			p.text-indigo-800.dark:text-gray-300
+				| 宣言した願いごとを振り返るタイミング(新月に対応する約半年後の満月の日)に通知でお知らせします。
+				br
+				| 新月のタイミングもLINE通知でお知らせします。
+			figure
+				= image_tag 'top_LINE.png', class:"mt-2 w-48"
+		
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
+			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
+				i.fas.fa-glass-cheers.text-2xl.w-8.pt-1
+			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
+				| みんなで
+				br
+				| 願いを叶えよう
+			p.text-indigo-800.dark:text-gray-300
+				| 願いごと(非公開を除く)をみんなで応援していきましょう！
+				br
+				| 叶った願いも見ることができるので、そこから自分の望みに気づくことができるかもしれません。
+			figure
+				= image_tag 'top_cheer.png', class:"mt-2 w-48"
+
+	.flex.flex-col.px-6.py-14.mx-auto.items-center
+		.text-xl.font-semibold.text-center.text-indigo-900.capitalize.lg:text-2xl.dark:text-white
+			| 今からはじめてみませんか 		
+		.text-md.text-center.text-indigo-400
+			| 新規登録をスキップして、すぐに始めていただけます。
+		= button_to guest_login_path do
+			button.btn.mt-6.border-none.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700.hover:bg-gradient-to-r.hover:from-purple-600.hover:via-indigo-500.hover:to-blue-600
+				| 今から言葉にしてみる

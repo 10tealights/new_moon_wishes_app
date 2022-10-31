@@ -5,6 +5,10 @@ module ApplicationHelper
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
 
+  def next_newmoon
+    Moon.latest
+  end
+
   def hidden_if(action)
     params[:action] == action ? 'flex' : 'hidden'
   end
