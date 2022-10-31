@@ -23,18 +23,22 @@ section.bg-indigo-50
 	.container.px-6.pt-14.pb-4.mx-auto
 		.text-xl.font-semibold.text-center.text-indigo-900.capitalize.lg:text-2xl.dark:text-white
 			| このアプリでできること 
-	.grid.grid-cols-1.gap-4.mt-4.xl:mt-6.xl:gap-6.md:grid-cols-2.sm:mx-30
-		.flex.flex-col.items-center.mx-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg
+	.grid.grid-cols-1.gap-2.mt-4.xl:mt-6.xl:gap-3.md:grid-cols-2.sm:mx-14
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
 			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
 				i.fas.fa-feather-alt.text-2xl.w-8.pt-1
 			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
+				| 新月に
+				br
 				| 願いごとを宣言
 			p.text-indigo-800.dark:text-gray-300
 				| 新月の内容に合わせて、願いごとをアプリ上で宣言できます。
 				br
 				| 宣言した願いごとについて、アファメーションもできます(Coming Soon)。
+			figure
+				= image_tag 'top_declaration.png', class:"mt-2 w-48"
 		
-		.flex.flex-col.items-center.mx-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
 			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
 				i.fas.fa-calendar-check.text-2xl.w-8.pt-1
 			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
@@ -42,9 +46,11 @@ section.bg-indigo-50
 				br
 				| 達成状況のふりかえり
 			p.text-indigo-800.dark:text-gray-300
-				| 願いごとを宣言した後、叶っているのかどうかの振り返りができます。
+				| 願いごとを宣言した後、叶っているのかどうかの振り返りができます。個人的なメモ(非公開)も記録できます。
+			figure
+				= image_tag 'top_reflection.png', class:"mt-2 w-48"
 		
-		.flex.flex-col.items-center.mx-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
 			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
 				i.fas.fa-bell.text-2xl.w-8.pt-1
 			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
@@ -55,17 +61,23 @@ section.bg-indigo-50
 				| 宣言した願いごとを振り返るタイミング(新月に対応する約半年後の満月の日)に通知でお知らせします。
 				br
 				| 新月のタイミングもLINE通知でお知らせします。
+			figure
+				= image_tag 'top_LINE.png', class:"mt-2 w-48"
 		
-		.flex.flex-col.items-center.mx-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
 			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
 				i.fas.fa-glass-cheers.text-2xl.w-8.pt-1
 			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
-				| みんなで願いを応援
+				| みんなで
+				br
+				| 願いを叶えよう
 			p.text-indigo-800.dark:text-gray-300
 				| 願いごと(非公開を除く)をみんなで応援していきましょう！
 				br
 				| 叶った願いも見ることができるので、そこから自分の望みに気づくことができるかもしれません。
-	
+			figure
+				= image_tag 'top_cheer.png', class:"mt-2 w-48"
+
 	.flex.flex-col.px-6.py-14.mx-auto.items-center
 		.text-xl.font-semibold.text-center.text-indigo-900.capitalize.lg:text-2xl.dark:text-white
 			| 今からはじめてみませんか 		
