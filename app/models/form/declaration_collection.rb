@@ -57,7 +57,10 @@ class Form::DeclarationCollection
     ActiveRecord::Base.transaction do
       if tag_params[:memo].nil?
         declarations.each_with_index do |declaration, index|
-          next if declaration.message.blank?
+          if declaration.message.blank?
+            declaration.destroy!
+            next
+          end
 
           if tag_params[index.to_s][:declaration_tags].present?
             tags = tag_params[index.to_s][:declaration_tags][:tag_id].map(&:to_i)
@@ -66,8 +69,8 @@ class Form::DeclarationCollection
             declaration.tag_ids = []
           end
           return false unless declaration.valid?
+          declaration.save!
         end
-        declarations.each(&:save!)
       else
         declarations.each(&:save!)
         @wish.update!(memo: tag_params[:memo])
