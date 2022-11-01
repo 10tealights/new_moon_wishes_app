@@ -55,10 +55,7 @@ class Form::DeclarationCollection
     return false unless valid?
 
     ActiveRecord::Base.transaction do
-      if tag_params[:memo].present?
-        declarations.each(&:save!)
-        @wish.update!(memo: tag_params[:memo])
-      else
+      if tag_params[:memo].nil?
         declarations.each_with_index do |declaration, index|
           next if declaration.message.blank?
 
@@ -71,6 +68,9 @@ class Form::DeclarationCollection
           return false unless declaration.valid?
         end
         declarations.each(&:save!)
+      else
+        declarations.each(&:save!)
+        @wish.update!(memo: tag_params[:memo])
       end
       true
     end
