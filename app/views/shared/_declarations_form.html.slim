@@ -7,8 +7,15 @@
   = fb.submit '願いごとをする', class: "btn btn-wide w-full mt-8 mb-20"
 
   javascript:
-    document.getElementById('js-add-declaration-form-0').style.display = "block";
-    document.getElementById('js-add-declaration-form-1').style.display = "block";
+    changeFormToOpen(0, 2);
+    if ( '#{params[:action]}' == 'edit' ) {
+      changeFormToOpen(0, #{form.declarations.count});
+    }
+    function changeFormToOpen(start_count, end_count) {
+      for (start_count; start_count < end_count; ++start_count ) {
+        document.getElementById(`js-add-declaration-form-${start_count}`).style.display = "block";
+      }
+    }
     let form_count = 2
     const displayDeclarationForm = (e) => {
       if ( form_count < 10 ) {
