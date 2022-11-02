@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def hidden_if(action)
-    params[:action] == action ? 'flex' : 'hidden'
+    params[:action] == action ? 'hidden' : 'flex'
   end
 
   def fullmoon_emoji_if(declaration)
