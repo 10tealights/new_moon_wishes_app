@@ -10,7 +10,7 @@ class ReflectionsController < ApplicationController
     if @form.update(wish_params)
       redirect_to wishes_path, notice: t('.updated')
     else
-      flash[:alert] = t('.not_updated')
+      flash.now[:alert] = t('.not_updated')
       render :edit
     end
   end

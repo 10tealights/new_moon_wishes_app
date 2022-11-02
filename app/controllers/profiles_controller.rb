@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
     if @current_user.update(profile_params)
       redirect_to profile_path, notice: t('defaults.message.updated', item: 'プロフィール')
     else
-      flash[:alert] = t('defaults.message.not_updated', item: 'プロフィール')
+      flash.now[:alert] = t('defaults.message.not_updated', item: 'プロフィール')
       render :edit
     end
   end

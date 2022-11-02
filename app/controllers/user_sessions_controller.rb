@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     if @user
       redirect_back_or_to(menu_path, notice: t('.login_success'))
     else
-      flash[:alert] = t('.login_failed')
+      flash.now[:alert] = t('.login_failed')
       render :new
     end
   end
