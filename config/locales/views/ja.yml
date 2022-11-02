@@ -33,6 +33,9 @@ ja:
       login_failed: 'ログインできませんでした'
     destroy:
       logout_success: 'ログアウトしました'
+  guest_sessions:
+    create:
+      created: 'ゲストユーザーとしてログインしました'
   password_resets:
     create:
       reset_success: 'パスワードリセットメールを送信しました'
