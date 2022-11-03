@@ -33,6 +33,6 @@ class User < ApplicationRecord
     elsif params[:need_fullmoon_msg]
       self.need_fullmoon_msg = params[:need_fullmoon_msg].include?('true') ? :true : :false
     end
-    self.save
+    self.save(validate: false)
   end
 end
