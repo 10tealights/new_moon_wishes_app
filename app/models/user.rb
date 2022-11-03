@@ -9,7 +9,9 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :authentications
 
   validates :name, presence: true, length: { maximum: 30 }
-  validates :password, length: { minimum: 7 }, if: -> { new_record? || changes[:crypted_password] }
+  validates :email, presence: true, on: %i[create update]
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze }, uniqueness: true 
+  validates :password, length: { minimum: 7 }, format: { with: /\A[a-zA-Z0-9]+\z/.freeze }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 

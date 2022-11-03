@@ -10,7 +10,7 @@
         label.label
           span.label-text
             = f.label User.human_attribute_name(:password) 
-        = f.password_field :password, placeholder: '新しいパスワードを7文字以上でご入力ください', class: "input input-primary border-opacity-20"
+        = f.password_field :password, placeholder: '新しいパスワードを半角英数字7文字以上でご入力ください', class: "input input-primary border-opacity-20"
       .form-control
         label.label
           span.label-text
