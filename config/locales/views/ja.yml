@@ -5,7 +5,7 @@ ja:
     logout: 'ログアウト'
     site_title: 'CLARUS | 願いごと宣言アプリ'
     site_url: 'https://new-moon-wishes.herokuapp.com'
-    password_reset_mail_subject: 'パスワードリセット手順のお知らせ'
+    password_reset_mail_subject: 'パスワード設定手順のお知らせ'
     message:
       not_authenticated: 'ログインしてください'
       created: '%{item}を作成しました'
@@ -39,7 +39,7 @@ ja:
       created: 'ゲストユーザーとしてログインしました'
   password_resets:
     create:
-      reset_success: 'パスワードリセットメールを送信しました'
+      reset_success: 'パスワード設定用のメールを送信しました'
     edit:
       title: 'パスワード再設定'
     update:
