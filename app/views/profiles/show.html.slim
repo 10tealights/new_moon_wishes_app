@@ -33,6 +33,9 @@
               = button_to oauth_path(@oauth.id), method: :delete do
                 button.btn.btn-sm.btn-outline.font-light
                   | 解除
+            - else
+              button.btn.btn-sm.btn-outline.font-light[disabled="disabled"]
+                | 解除 
           .divider.mt-3.mb-1.text-sm
             | 現在の通知設定
           .flex.items-center
@@ -61,6 +64,9 @@
               = button_to line_notification_path(@current_user, need_fullmoon_msg: :true), method: :patch do
                 button.btn.btn-sm.btn-outline.font-light
                   | 通知
+      label.modal-button.text-indigo-400.text-md.mt-5[for="my-modal-5"]
+        i.fas.fa-question-circle.pr-1
+        | 連携解除の方法を詳しく見る
 
     - else
       .card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
@@ -100,3 +106,31 @@ label.modal.cursor-pointer[for="my-modal-4"]
       | 4.LINEの通知設定をする
     p.text-sm
       | 通知をご希望の方は通知するボタンを押して通知をオンにしてください！
+
+input#my-modal-5.modal-toggle[type="checkbox"]
+label.modal.cursor-pointer[for="my-modal-5"]
+  label.modal-box.relative[for=""]
+    h3.mb-3.text-lg.font-bold.text-indigo-900.text-center
+      | LINEアカウント連携解除方法
+    h4.mt-3.mb-1.text-md.text-indigo-900
+      | 1.マイプロフィールの「編集」ボタンから、受信可能なメールアドレスを登録します。
+    h4.mt-5.mb-1.text-md.text-indigo-900
+      | 2.登録後、再度マイプロフィールの「編集」ボタンから「パスワードの変更」項目にある「メール送信」ボタンを押します。
+    p.text-sm
+      | 1にてご登録いただいたメールアドレスにメールが届きます。そちらにパスワード設定用のURLが記載されていますのでアクセスします。
+    h4.mt-5.mb-1.text-md.text-indigo-900
+      | 3.アクセスしたページでパスワードを設定します。
+    h4.mt-5.mb-1.text-md.text-indigo-900
+      | 4.「LINE連携」項目の「解除」ボタンを押して連携を解除します。
+    p.text-sm
+      | LINEアカウント連携を解除されますと新月・満月の通知は届かなくなりますのでご注意ください。本サービスには、ご登録いただいたメールアドレスとパスワードでログインいただけます。 
+    h3.mt-5.mb-3.text-lg.font-bold.text-indigo-900.text-center
+      | LINE上から直接連携を解除するには
+    h4.mt-5.mb-1.text-md.text-indigo-900
+      | 1.LINEアプリがインストールされているお使いのスマートフォンから下記URLにアクセスします。
+    p.text-sm
+      = link_to 'https://line.me/R/nv/connectedApps', 'https://line.me/R/nv/connectedApps', class: "link link-secondary"
+    h4.mt-5.mb-1.text-md.text-indigo-900
+      | 2.連動しているアプリの一覧が表示されますので、「CLARUS | 願いごと宣言アプリ」を選択します。
+    h4.mt-5.mb-1.text-md.text-indigo-900
+      | 3.「連動を解除」を押すと連動されている状態を解除できます。
