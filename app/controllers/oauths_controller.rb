@@ -6,20 +6,20 @@ class OauthsController < ApplicationController
   def callback
     provider = auth_params[:provider]
     if auth_params[:error].present?
-      redirect_to root_path, alert: 'ログイン(連携)をキャンセルしました' 
+      redirect_to root_path, notice: 'ログイン(連携)をキャンセルしました' 
       return
     end
 
     if @user = login_from(provider)
-      redirect_to root_path, notice:(t'.login_success', item: provider.upcase)
+      redirect_to menu_path, notice:(t'.login_success', item: provider.upcase)
     else
       begin
         @user = current_user.present? ? update_from(provider) : create_from(provider)
         reset_session
         auto_login(@user)
-        redirect_to root_path, notice: (t'.login_success', item: provider.upcase)
+        redirect_to menu_path, notice: (t'.login_success', item: provider.upcase)
       rescue
-        redirect_to root_path, alert: (t'.login_failed', item: provider.upcase)
+        redirect_to root_path, notice: (t'.login_failed', item: provider.upcase)
       end
     end
   end
