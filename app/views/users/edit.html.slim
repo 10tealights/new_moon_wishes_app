@@ -1,3 +1,10 @@
 - content_for :title, t('.title')
-= render 'shared/user_form', user: @user
-p すでに登録済みの方はログイン
+.container.mx-auto.text-indigo-900.mb-20
+  .px-5.border-opacity-50
+    .grid.place-items-center
+      h1.place-items-center.my-6.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        = t('.title')
+    .grid.place-items-center.mb-5
+	    p.text-sm.text-indigo-400 ゲストログイン中の情報を引き継いで新規登録ができます。
+    .grid.place-items-center
+      = render 'shared/user_form', user: @user
