@@ -31,7 +31,7 @@
           span.badge
             = User.human_attribute_name(:email)
           p.ml-3
-            - if @current_user.email.exclude?('guest_') && @current_user.email.exclude?('@example.com')
+            - if @current_user.email&.exclude?('guest_') && @current_user.email&.exclude?('@example.com')
               = @current_user.email
             - else
               | 未登録
