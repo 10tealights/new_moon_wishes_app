@@ -3,21 +3,45 @@
   .grid.place-items-center
     h1.mt-6.mb-3.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
       = t('.title')
-    .card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
-      .card-body.p-5
-        span.badge
-          = User.human_attribute_name(:name)
-        p.ml-3 = @current_user.name
-        span.badge
-          = User.human_attribute_name(:email)
-        p.ml-3 = @current_user.email.present? ? @current_user.email : '未登録'
-        .card-actions.justify-end.mt-3
-          = button_to user_path(@current_user), method: :delete do
-            button.btn.btn-sm.btn-outline.btn-error.font-light
-              | ユーザー削除
-          = link_to edit_profile_path do
-            button.btn.btn-sm.btn-outline.font-light
-              | 編集
+    - if @current_user.name&.include?('GUEST') && @current_user.email&.include?('guest_') && @current_user.authentications.nil?
+      .card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
+        .card-body.p-5
+          span.badge
+            = User.human_attribute_name(:name)
+          p.ml-3
+            | ゲストユーザー さん
+          span.badge
+            = User.human_attribute_name(:email)
+          p.ml-3
+            | 未登録
+          .card-actions.justify-end.mt-3
+            label.modal-button.text-indigo-400.text-md[for="my-modal-6"]
+              .btn.btn-sm.btn-outline.btn-error.font-light
+                | ゲストユーザー削除
+            = link_to edit_user_path(current_user) do
+              button.btn.btn-sm.btn-outline.font-light
+                | このまま新規登録する
+    - else
+      .card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
+        .card-body.p-5
+          span.badge
+            = User.human_attribute_name(:name)
+          p.ml-3
+            | #{@current_user.name} さん
+          span.badge
+            = User.human_attribute_name(:email)
+          p.ml-3
+            - if @current_user.email.exclude?('guest_') && @current_user.email.exclude?('@example.com')
+              = @current_user.email
+            - else
+              | 未登録
+          .card-actions.justify-end.mt-3
+            label.modal-button.text-indigo-400.text-md[for="my-modal-7"]
+              .btn.btn-sm.btn-outline.btn-error.font-light
+                | ユーザー削除
+            = link_to edit_profile_path do
+              button.btn.btn-sm.btn-outline.font-light
+                | 編集
     
     h1.mt-6.mb-3.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
       | LINE連携
@@ -29,7 +53,7 @@
             .flex-col.pl-2.pr-5.flex-grow
               = @current_user.line_name
               p.text-sm.text-gray-400 連携されています
-            - if @current_user.crypted_password.present? && @current_user.email.present?
+            - if @current_user.crypted_password.present? && @current_user.email.present? && @current_user.email.exclude?('guest_') && @current_user.email.exclude?('@example.com')
               = button_to oauth_path(@oauth.id), method: :delete do
                 button.btn.btn-sm.btn-outline.font-light
                   | 解除
@@ -134,3 +158,32 @@ label.modal.cursor-pointer[for="my-modal-5"]
       | 2.連動しているアプリの一覧が表示されますので、「CLARUS | 願いごと宣言アプリ」を選択します。
     h4.mt-5.mb-1.text-md.text-indigo-900
       | 3.「連動を解除」を押すと連動されている状態を解除できます。
+
+input#my-modal-6.modal-toggle[type="checkbox"]
+label.modal.cursor-pointer[for="my-modal-6"]
+  label.modal-box.relative[for=""]
+    h3.text-lg.text-indigo-900.font-bold.text-center
+      | ゲストユーザーからログアウト
+    p.text-sm.py-4.text-indigo-900
+      | 宣言している願いごとはなくなってしまいます。新規登録せずにログアウトしてよろしいですか？
+    .card-actions.justify-end.mt-3
+      = button_to user_path(@current_user), method: :delete do
+        button.btn.btn-sm.btn-outline.btn-error.font-light
+          | 削除してログアウト
+      = link_to edit_user_path(@current_user) do
+        button.btn.btn-sm.btn-outline.font-light
+          | このまま新規登録する
+
+input#my-modal-7.modal-toggle[type="checkbox"]
+label.modal.cursor-pointer[for="my-modal-7"]
+  label.modal-box.relative[for=""]
+    h3.text-lg.text-indigo-900.font-bold.text-center
+      | ユーザー情報の全削除
+    p.text-sm.py-4.text-indigo-900
+      | 本サービスに記録されているすべての内容(願いごとなどの内容・プロフィール・LINEアカウント連携情報など全て)が削除されます。本当によろしいですか？
+    .card-actions.justify-end.mt-3
+      = button_to user_path(@current_user), method: :delete do
+        button.btn.btn-sm.btn-outline.btn-error.font-light
+          | ユーザー削除
+      label.btn.btn-sm.btn-outline.font-light[for="my-modal-7"]
+        | キャンセル
