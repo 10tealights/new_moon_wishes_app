@@ -1,4 +1,6 @@
 class OauthsController < ApplicationController
+  skip_before_action :require_login, only: %i[oauth callback]
+
   def oauth
     login_at(auth_params[:provider])
   end
@@ -28,7 +30,7 @@ class OauthsController < ApplicationController
     @oauth = current_user.authentications.find(params[:id])
     @oauth.destroy!
     current_user.update!(line_name: nil, picture_url: nil)
-    redirect_back fallback_location: profile_path, notice: t('.destroyed')
+    redirect_to profile_path, notice: t('.destroyed')
   end
 
   private

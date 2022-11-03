@@ -1,4 +1,6 @@
 class LineNotificationsController < ApplicationController
+  skip_before_action :require_login
+
   def update
     current_user.change_notification_status(notification_params)
     redirect_to profile_path, notice: t('.updated')
