@@ -88,7 +88,7 @@
             | みんなの願いごとを見てみる
 
   .grid.place-items-center.my-5
-    - if current_user.email.include?('guest_') && @wishes.present?
+    - if current_user.email&.include?('guest_') && @wishes.present?
       p.text-sm.text-indigo-400 この願いごとを記録した状態で
       = link_to edit_user_path(current_user) do
         button.btn.btn-sm.btn-outline.font-light.mt-2
