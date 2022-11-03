@@ -3,7 +3,8 @@ ja:
     login: 'ログイン'
     signup: '登録'
     logout: 'ログアウト'
-    site_title: 'New moon wishes(TBD)'
+    site_title: 'CLARUS | 願いごと宣言アプリ'
+    site_url: 'https://new-moon-wishes.herokuapp.com'
     password_reset_mail_subject: 'パスワードリセット手順のお知らせ'
     message:
       not_authenticated: 'ログインしてください'
