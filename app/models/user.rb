@@ -22,7 +22,7 @@ class User < ApplicationRecord
   def self.guest_generate
     random_value = SecureRandom.hex(3)
     User.find_or_create_by!(name: 'GUEST', email: "guest_#{random_value}@example.com") do |user|
-      user.password = SecureRandom.urlsafe_base64
+      user.password = SecureRandom.alphanumeric(14)
       user.password_confirmation = user.password
     end
   end
