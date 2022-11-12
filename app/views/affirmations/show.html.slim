@@ -1,3 +1,63 @@
-- @wish.declarations.each do |declaration|
-	= declaration.message
-	br
+script[src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"]
+#particles-js
+.container.mx-auto.mb-14
+  .grid.place-items-center
+    h1.place-items-center.my-7.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-300.via-indigo-200.to-blue-300
+    	| MY DECLARATIONS
+		.text-center.text-sm
+			| #{@wish.zodiac_sign.name_i18n}新月
+			br
+			| #{l(@wish.moon.newmoon_time)}
+  .grid.place-items-center.mx-10.my-auto
+		.text-indigo-100.text-center.leading-5.glowAnime.hidden
+			- @wish.declarations.each do |declaration|
+				= declaration.message + '&'
+  .grid.place-items-center.mx-10.my-auto
+
+
+javascript:
+	particlesJS.load('particles-js', '/assets/particles.json', function() {
+		console.log('callback - particles.js config loaded');
+	});
+
+	// glowAnimeにglowというクラス名を付ける定義
+	function GlowAnimeControl() {
+		const glowAnime = document.querySelectorAll('.glowAnime');
+		for (var i = 0; i < glowAnime.length; i++) {
+			var elemPos = glowAnime[i].getBoundingClientRect().top + window.pageYOffset - 50;
+			var scroll = window.pageYOffset;
+			var windowHeight = window.innerHeight;
+			if (scroll >= elemPos - windowHeight) {
+				glowAnime[i].classList.remove("hidden");
+				glowAnime[i].classList.add("glow");
+			} else {
+				glowAnime[i].classList.remove("glow");
+			}
+		}
+	}
+
+	var element = document.querySelectorAll(".glowAnime");
+	window.addEventListener('load', (event) => {
+		for (var m = 0; m < element.length; m++) {
+			var text = element[m].innerText;
+			var textbox = "";
+			text.split('').forEach(function (t, i) {
+				if (t !== " " && t !== "&") {
+					if (i < 10) {
+						textbox += '<span style="animation-delay: .' + i + 's;">' + t + '</span>';
+					} else {
+						var n = i / 10;
+						textbox += '<span style="animation-delay: ' + n + 's;">' + t + '</span>';
+					}
+				} else if (t == "&") {
+					textbox += '</br></br>';
+				} else {
+					textbox += t;
+				}
+			});
+			textbox += '</br>';
+			element[m].innerHTML = textbox;
+		};
+
+		GlowAnimeControl();
+	});

@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title
+      = page_title(yield(:title))
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = favicon_link_tag "favicon.ico"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    link rel="apple-touch-icon" href="#{image_path("apple-touch-icon.png")}" sizes="180x180" type="image/png"
+    link rel="android-touch-icon" href="#{image_path("android-touch-icon.png")}" sizes="192x192" type="image/png"
+    = render 'layouts/google_analytics'
+  body
+    = yield
