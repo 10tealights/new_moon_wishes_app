@@ -49,8 +49,8 @@
                 button.btn.btn-sm.btn-outline.font-light
                   | 振り返る
               .flex-row
-                = link_to '#' do
-                  button.btn.btn-sm.btn-outline.font-light[disabled="disabled"]
+                = link_to affirmation_path(wish) do
+                  button.btn.btn-sm.btn-outline.font-light
                     | アファメーションをはじめる
             /.collapse
               input[type="checkbox"]
