@@ -1,0 +1,74 @@
+- content_for :title, t('.title')
+.container.mx-auto.text-indigo-900.mb-20
+  .px-5.border-opacity-50
+    .flex.flex-col.place-items-center
+      h1.place-items-center.my-6.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        = t('.title')
+      p.text-sm.md:w-4/5.xl:w-3/5
+        | Shoko Totsuka(以下、「当方」といいます。)は、本ウェブサイト上で提供するサービス(以下、「本サービス」といいます。)におけるユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー(以下、「本ポリシー」といいます。)を定めます。
+      h2.place-items-center.mt-6.mb-3.text-lg.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | お客様から取得する情報
+      p.text-sm.items-start.w-full.md:w-4/5.xl:w-3/5.mb-1
+        | 当方は、お客様から以下の情報を取得します。
+      ul.list-disc.text-sm.md:w-4/5.xl:w-3/5.ml-4.md:ml-14
+        li 氏名(ニックネームやペンネームも含む)
+        li 年齢または生年月日
+        li メールアドレス
+        li 外部サービスでお客様が利用するID、その他外部サービスのプライバシー設定によりお客様が連携先に開示を認めた情報
+        li Cookie(クッキー)を用いて生成された識別情報
+        li OSが生成するID、端末の種類、端末識別子等のお客様が利用するOSや端末に関する情報
+        li 当方ウェブサイトの滞在時間、入力履歴、購買履歴等の当方ウェブサイトにおけるお客様の行動履歴
+      h2.place-items-center.mt-8.mb-3.text-lg.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | お客様の情報を利用する目的
+      p.text-sm.w-full.md:w-4/5.xl:w-3/5.mb-1
+        | 当方は、お客様から取得した情報を、以下の目的のために利用します。
+      ul.list-disc.text-sm.md:w-4/5.xl:w-3/5.ml-4.md:ml-14
+        li 本サービスに関する登録の受付、お客様の本人確認、認証のため
+        li お客様の本サービスの利用履歴を管理するため
+        li 本サービスにおけるお客様の行動履歴を分析し、本サービスの維持改善に役立てるため
+        li 当方のサービスに関するご案内をするため
+        li お客様からのお問い合わせに対応するため
+        li 当方の規約や法令に違反する行為に対応するため
+        li 本サービスの変更、提供中止、終了、契約解除をご連絡するため
+        li 当方規約の変更等を通知するため
+        li 以上の他、本サービスの提供、維持、保護及び改善のため
+      h2.place-items-center.mt-8.mb-3.text-lg.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | 安全管理のために講じた措置
+      p.text-sm.md:w-4/5.xl:w-3/5.mb-1
+        | 当方が、お客様から取得した情報に関して安全管理のために講じた措置につきましては、末尾記載のお問い合わせ先にご連絡をいただきましたら、法令の定めに従い個別にご回答させていただきます。
+      h2.place-items-center.mt-8.mb-3.text-lg.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | 第三者提供
+      p.text-sm.md:w-4/5.xl:w-3/5.mb-1
+        | 当方は、お客様から取得する情報のうち、個人データ(個人情報保護法第2条第6項)に該当するものついては、あらかじめお客様の同意を得ずに、第三者(日本国外にある者を含みます。)に提供しません。但し、次の場合は除きます。
+      ul.list-disc.text-sm.md:w-4/5.xl:w-3/5.ml-4.md:ml-14
+        li 個人データの取扱いを外部に委託する場合
+        li 当方や本サービスが買収された場合
+        li 事業パートナーと共同利用する場合(具体的な共同利用がある場合は、その内容を別途公表します。)
+        li その他、法律によって合法的に第三者提供が許されている場合
+      h2.place-items-center.mt-8.mb-3.text-lg.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | アクセス解析ツール
+      p.text-sm.md:w-4/5.xl:w-3/5.mb-1
+        | 当方は、お客様のアクセス解析のために「Googleアナリティクス」を利用しています。Googleアナリティクスは、トラフィックデータの収集のためにCookieを使用しています。トラフィックデータは匿名で収集されており、個人を特定するものではありません。Cookieを無効にすれば、これらの情報の収集を拒否することができます。詳しくはお使いのブラウザの設定をご確認ください。Googleアナリティクスについて、詳しくは以下からご確認ください。
+        br
+        br
+        = link_to 'https://marketingplatform.google.com/about/analytics/terms/jp/', class:"link link-secondary" do
+          | Googleアナリティクス利用規約
+          i.fas.fa-external-link-alt.ml-1.text-xs
+      h2.place-items-center.mt-8.mb-3.text-lg.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | プライバシーポリシーの変更
+      p.text-sm.md:w-4/5.xl:w-3/5.mb-1
+        | 当方は、必要に応じて、本ポリシーの内容を変更します。本ポリシーの内容は、法令その他本ポリシーに別段の定めのある事項を除いて、お客様に通知することなく、変更することができるものとします。当方が別途定める場合を除いて、変更後のプライバシーポリシーは、本ウェブサイトに掲載したときから効力を生じるものとします。
+      h2.place-items-center.mt-8.mb-3.text-lg.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        | お問い合わせ
+      p.text-sm.md:w-4/5.xl:w-3/5.mb-1
+        | お客様の情報の開示、情報の訂正、利用停止、削除をご希望の場合は、下記のお問い合わせフォームまたはメールアドレス(app.clarus☆gmail.com)(☆を@に置換ください)までご連絡ください。
+        br
+        br
+        = link_to 'https://forms.gle/Mv9QCSuTK32tjMgK7', class:"link link-secondary" do
+          | お問い合わせフォーム
+          i.fas.fa-external-link-alt.ml-1.text-xs
+      p.text-sm.text-right.md:w-4/5.xl:w-3/5.my-5
+        | 以上
+        br
+        br
+        | 2022年11月15日 制定
