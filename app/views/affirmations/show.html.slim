@@ -1,0 +1,74 @@
+script[src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"]
+
+#screenshot-target
+	#particles-js
+	.container.mx-auto.mb-14
+		.grid.place-items-center
+			h1.place-items-center.my-7.text-xl.text-bold.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-300.via-indigo-200.to-blue-300
+				| MY DECLARATIONS
+				.text-center.text-sm.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-300.via-indigo-200.to-blue-300
+					| #{@wish.zodiac_sign.name_i18n}新月 #{l(@wish.moon.newmoon_time)}
+		.grid.place-items-center.mx-10.my-auto
+			.text-indigo-100.text-center.leading-5.glowAnime.hidden
+				- @wish.declarations.each do |declaration|
+					- next if declaration.fulfilled? || declaration.removed?
+					= declaration.message + '&'
+		.btm-nav.btm-nav-sm.bg-transparent.h-16
+			#menuButton.flex.flex-row.hidden
+				= link_to affirmation_path(@wish) do
+					button.btn.btn-sm.btn-outline.font-light.text-indigo-200.mr-2[onclick="reloadGlowAnime()"]
+						| もう一度
+				= link_to wishes_path do
+					button.btn.btn-sm.btn-outline.font-light.text-indigo-200
+						| 終わる
+
+javascript:
+	particlesJS.load('particles-js', '/assets/particles.json', function() {
+		console.log('callback - particles.js config loaded');
+	});
+	
+	const glowAnime = document.querySelectorAll('.glowAnime');
+	function GlowAnimeControl() {
+		for (var i = 0; i < glowAnime.length; i++) {
+			var elemPos = glowAnime[i].getBoundingClientRect().top + window.pageYOffset - 50;
+			var scroll = window.pageYOffset;
+			var windowHeight = window.innerHeight;
+			if (scroll >= elemPos - windowHeight) {
+				glowAnime[i].classList.remove("hidden");
+				glowAnime[i].classList.add("glow");
+			} else {
+				glowAnime[i].classList.remove("glow");
+			}
+		}
+	}
+
+	var element = document.querySelectorAll(".glowAnime");
+	var animationTime = 0;
+	window.addEventListener('load', (event) => {
+		for (var m = 0; m < element.length; m++) {
+			var text = element[m].innerText;
+			var textbox = "";
+			text.split('').forEach(function (t, i) {
+				if (t !== " " && t !== "&") {
+					if (i < 10) {
+						textbox += '<span style="animation-delay: 1.' + i + 's;">' + t + '</span>';
+					} else {
+						var n = (i + 10) / 10;
+						textbox += '<span style="animation-delay: ' + n + 's;">' + t + '</span>';
+					}
+				} else if (t == "&") {
+					textbox += '</br></br>';
+				} else {
+					textbox += t;
+				}
+			animationTime = i;
+			});
+			element[m].innerHTML = textbox;
+		};
+
+    setTimeout(() => {
+      document.getElementById('menuButton').classList.remove("hidden");
+    }, animationTime * 100 + 3000);
+
+		GlowAnimeControl();
+	});

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resources :wishes, only: %i[index new create edit update destroy]
   resources :reflections, only: %i[edit update]
+  resources :affirmations, only: %i[show]
   resources :cheers, only: %i[index create]
   resources :oauths, only: %i[destroy]
   resources :line_notifications, only: %i[update]
