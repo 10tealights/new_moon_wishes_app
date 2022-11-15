@@ -4,6 +4,10 @@
       text-lg.font-bold.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
         | CLARUS
   - if logged_in?
+    .flex.justify-end.md:hidden
+      = button_to logout_path, method: :delete do
+        label.btn.btn-sm.btn-ghost.items-center.rounded-btn
+          i.fas.fa-sign-out-alt.mt-1.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
     .flex.justify-end.hidden.md:flex
       .flex.items-stretch
         = link_to new_wish_path do
@@ -20,7 +24,7 @@
             .text-xs 願いを応援
         = link_to profile_path do
           label.btn.btn-ghost.rounded-btn.flex-col.font-normal
-            i.fas.fa-info-circle.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            i.fas.fa-star.text-lg.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
             .text-xs プロフィール
         = button_to logout_path, method: :delete do
           span.btn.btn-ghost.rounded-btn.flex-col.font-normal
@@ -43,11 +47,11 @@
             i.fas.fa-info-circle
           ul.menu.dropdown-content.p-2.shadow.bg-indigo-50.rounded.w-52.mt-4[tabindex="0"]
             li
-              a
+              = link_to terms_path do
                 | 利用規約
             li
-              a
+              = link_to privacy_path do
                 | プライバシーポリシー
             li
-              a
+              = link_to 'https://forms.gle/Mv9QCSuTK32tjMgK7', target: :_blank, rel: 'noopener noreferrer' do
                 | お問い合わせ
