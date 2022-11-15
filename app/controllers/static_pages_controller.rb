@@ -4,4 +4,9 @@ class StaticPagesController < ApplicationController
   def top; end
 
   def menu; end
+
+  def terms; end
+
+  def privacy; end
+
 end
