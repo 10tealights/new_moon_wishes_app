@@ -5,6 +5,36 @@ module ApplicationHelper
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
 
+  # 各ページの説明文 120文字前後
+  def full_description(page_description = '')
+    base_description = t 'defaults.site_description_long' 
+    if page_description.empty?
+      base_description
+    else
+      page_description
+    end
+  end
+  
+  # 各ページの説明文 50文字前後
+  def og_description(page_description = '')
+    base_description = t 'defaults.site_description_short' 
+    if page_description.empty?
+      base_description
+    else
+      page_description
+    end
+  end
+  
+  # 各ページのイメージ画像
+  def og_image(page_image = '')
+    base_image = image_url('clarus_ogp.png')
+    if page_image.empty?
+      base_image
+    else
+      page_image
+    end
+  end
+
   def next_newmoon
     Moon.latest
   end

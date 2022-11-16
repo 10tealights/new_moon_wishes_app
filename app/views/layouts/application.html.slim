@@ -3,10 +3,19 @@ html
   head
     title
       = page_title(yield(:title))
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
     = favicon_link_tag "favicon.ico"
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    meta[name="description" content="#{full_description(yield(:description))}"]
+    meta[property="og:locale" content="ja_JP"]
+    meta[property="og:title" content="#{page_title(yield(:title))}"]
+    meta[property="og:description" content="#{og_description(yield(:og_description))}"]
+    meta[property="og:url" content="#{request.url}"]
+    meta[property="og:image" content="#{og_image(yield(:og_image))}"]
+    meta[property="og:site_name" content="#{page_title(yield(:title))}"]
+    meta[property="og:type" content="website"]
+    meta[name="twitter:card" content="summary_large_image"]
     = stylesheet_link_tag "application"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
     link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
