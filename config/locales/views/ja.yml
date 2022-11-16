@@ -5,6 +5,8 @@ ja:
     logout: 'ログアウト'
     site_title: 'CLARUS | 願いごと宣言アプリ'
     site_url: 'https://new-moon-wishes.herokuapp.com'
+    site_description_short: '新月に願いごとを宣言、アファメーションと半年後の満月に振り返り時期であることをお知らせするWebサービスです。'
+    site_description_long: '心の中にあるその願い、ここで「言葉」にしてみませんか。新月に合わせて、自分のやりたいこと・叶えたいこと・もうやめたいことなどを「願いごと」として宣言。半年後、あなたのLINEへ振り返りの時期であることをお知らせします。'
     password_reset_mail_subject: 'パスワード設定手順のお知らせ'
     message:
       not_authenticated: 'ログインしてください'
@@ -56,6 +58,10 @@ ja:
   static_pages:
     menu:
       title: 'MENU'
+    terms:
+      title: '利用規約'
+    privacy:
+      title: 'プライバシーポリシー'
   wishes:
     index:
       title: '願いごと一覧'

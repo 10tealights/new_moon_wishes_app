@@ -4,23 +4,14 @@
     span.btm-nav-label.text-indigo-900
       | 願いごと
   = link_to wishes_path do
-    i.fas.fa-calendar-alt.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
-    span.btm-nav-label.text-indigo-900
+    i.fas.fa-calendar-alt.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mr-2
+    span.btm-nav-label.text-indigo-900.mr-2
       | 振り返り
   = link_to cheers_path
-    i.fas.fa-user-friends.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
-    span.btm-nav-label.text-indigo-900
+    i.fas.fa-user-friends.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mr-2
+    span.btm-nav-label.text-indigo-900.mr-2
       | 願いを応援
-  /= link_to profile_path
-    i.fas.fa-info-circle.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+  = link_to profile_path
+    i.fas.fa-star.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
     span.btm-nav-label.text-indigo-900
-      | 設定
-  .dropdown.dropdown-top.dropdown-end.flex.block[tabindex="0"]
-    i.fas.fa-info-circle.block.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
-    span.btm-nav-label.block.text-indigo-900
-      | 設定
-    ul.dropdown-content.menu.pt-1.pd-1.bg-indigo-50.rounded.w-32.md:w-52[tabindex="0"]
-      li.text-sm.text-indigo-900
-        = button_to t('defaults.logout'), logout_path, method: :delete
-      li.text-sm.text-indigo-900
-        = link_to 'プロフィール', profile_path
+      | プロフィール
