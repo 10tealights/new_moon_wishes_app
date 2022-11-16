@@ -56,6 +56,10 @@ ja:
   static_pages:
     menu:
       title: 'MENU'
+    terms:
+      title: '利用規約'
+    privacy:
+      title: 'プライバシーポリシー'
   wishes:
     index:
       title: '願いごと一覧'
