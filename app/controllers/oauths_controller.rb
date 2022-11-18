@@ -29,7 +29,7 @@ class OauthsController < ApplicationController
   def destroy
     @oauth = current_user.authentications.find(params[:id])
     @oauth.destroy!
-    current_user.update!(line_name: nil, picture_url: nil)
+    current_user.update!(line_name: nil, picture_url: nil, need_newmoon_msg: false, need_fullmoon_msg: false)
     redirect_to profile_path, notice: t('.destroyed')
   end
 
