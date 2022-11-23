@@ -27,13 +27,12 @@ namespace :moon_notification do
     end
   end
 
-  # 画像は後で差し替え予定
   def flex_message(user, moon, moon_type)
     {
       "type": "bubble",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "url": "#{moon_type.include?('新月') ? 'https://res.cloudinary.com/dhbscendw/image/upload/v1669192782/line_notice_newmoon_xeecky.jpg' : 'https://res.cloudinary.com/dhbscendw/image/upload/v1669193825/line_notice_fullmoon_kwoutr.jpg'}",
         "size": "full",
         "aspectRatio": "16:9",
         "aspectMode": "cover",
