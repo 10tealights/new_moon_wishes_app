@@ -34,6 +34,7 @@ class Form::DeclarationCollection
   end
 
   def save
+    self.declarations = declarations.partition{ |dec| dec[:message].present? }.then{ |messages, nils| messages + nils }
     return false unless wish_is_not_created? && valid?
     ActiveRecord::Base.transaction do
       @wish.save!
