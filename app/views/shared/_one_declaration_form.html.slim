@@ -37,3 +37,14 @@ javascript:
   		document.getElementById(displayId).classList.remove("text-red-400");
 		}
 	}
+	window.addEventListener("load", function() {
+		for (let i = 0; i < 10; i++) {
+			let input_form = document.getElementById(`js-message-form-${i}`);
+			let count_display = document.getElementById(`js-input-length-${i}`);
+			count_display.innerHTML = input_form.textContent.length + "/100文字";
+			if (input_form.textContent.length > 100) {
+				document.getElementById(`js-input-length-${i}`).classList.add("text-red-400");
+				document.getElementById(`js-message-form-${i}`).classList.add("text-red-400");
+			}
+		}
+	});
