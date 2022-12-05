@@ -1,2 +1,0 @@
-class DeclarationsController < ApplicationController
-end
