@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_073126) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_131600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -108,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_073126) do
     t.string "line_name"
     t.boolean "need_newmoon_msg", default: false, null: false
     t.boolean "need_fullmoon_msg", default: false, null: false
+    t.integer "role", default: 0, null: false
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
