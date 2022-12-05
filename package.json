@@ -2,6 +2,7 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@moesaid/cleopatra": "^1.1.1",
     "autoprefixer": "^10.4.8",
     "daisyui": "^2.24.0",
     "esbuild": "^0.15.5",
