@@ -6,11 +6,15 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = favicon_link_tag "favicon.ico"
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    = stylesheet_link_tag "admin"
+    = javascript_include_tag "admin", "data-turbo-track": "reload", defer: true
     link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     link rel="apple-touch-icon" href="#{image_path("apple-touch-icon.png")}" sizes="180x180" type="image/png"
     link rel="android-touch-icon" href="#{image_path("android-touch-icon.png")}" sizes="192x192" type="image/png"
-  body
-    p admin/layouts/application.html.slim
-    = yield
+  body.bg-gray-100.text-indigo-900
+		= render 'admin/shared/navbar'
+		.h-screen.flex.flex-row.flex-wrap
+			= render 'admin/shared/sidebar'
+			.bg-gray-100.flex-1.p-6.md:mt-16
+				= render 'admin/shared/flash_messages'
+				= yield

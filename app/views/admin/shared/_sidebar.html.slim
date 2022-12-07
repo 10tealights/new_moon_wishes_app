@@ -1,0 +1,24 @@
+#sideBar.relative.flex.flex-col.flex-wrap.bg-white.border-r.border-gray-300.p-4.flex-none.w-60.md:-ml-60.md:fixed.md:top-0.md:z-30.md:h-screen.md:shadow-xl.animated.faster
+  .flex.flex-col
+    .text-right.hidden.md:block.mb-4
+      button#sideBarHideBtn
+        i.fas.fa-times-circle
+    p.uppercase.text-xs.text-gray-600.mb-4.tracking-wider
+      | home
+    = link_to admin_root_path, class:"mb-3 font-medium text-sm hover:text-indigo-600 hover:transition hover:ease-in-out hover:duration-500" do
+      i.fas.fa-tachometer-alt.text-sm.mr-2
+      | ダッシュボード 
+    p.uppercase.text-xs.text-gray-600.mb-4.mt-4.tracking-wider
+      | data
+    = link_to admin_users_path, class:"mb-3 font-medium text-sm hover:text-indigo-600 hover:transition hover:ease-in-out hover:duration-500" do
+      i.fas.fa-user-cog.text-sm.mr-2
+      | ユーザー
+    a.mb-3.capitalize.font-medium.text-sm.hover:text-indigo-600.transition.ease-in-out.duration-500[href="#"]
+      i.fas.fa-list-alt.text-sm.mr-2
+      | 願いごと(公開のみ)
+    a.mb-3.capitalize.font-medium.text-sm.hover:text-indigo-600.transition.ease-in-out.duration-500[href="#"]
+      i.fas.fa-moon.text-sm.mr-2
+      | 新月・満月 
+    a.mb-3.capitalize.font-medium.text-sm.hover:text-indigo-600.transition.ease-in-out.duration-500[href="#"]
+      i.fas.fa-star.text-xs.mr-2
+      | サインのテーマ 

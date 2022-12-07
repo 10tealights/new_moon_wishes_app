@@ -5,4 +5,8 @@ class Admin::UserSessionsController < Admin::BaseController
 
   def new; end
 
+  def destroy
+    logout
+    redirect_to login_path, notice: t('.logout_success')
+  end
 end
