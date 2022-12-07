@@ -1,0 +1,36 @@
+.bg-gray-100.flex-1.p-6.md:mt-16
+  .grid.grid-cols-1.gap-5.mt-5
+    .w-full.max-w-xl.mx-auto
+      = form_with model: @user, url: admin_user_path(@user), method: :patch do |f|
+        .md:flex.md:items-center.mb-6
+          .md:w-2/3
+            label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4
+              = f.label :name
+          .md:w-2/3
+            = f.text_field :name, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+        .md:flex.md:items-center.mb-6
+          .md:w-2/3
+            label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4
+              = f.label :email
+          .md:w-2/3
+            = f.text_field :email, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+        .md:flex.md:items-center.mb-6
+          .md:w-2/3
+            label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4
+              = f.label '通知'
+              = @authentication.present? ? "(LINE連携あり)" : "(LINE連携なし)"
+          .md:w-2/3
+            = f.check_box :need_newmoon_msg, checked: f.object.need_newmoon_msg
+            = f.label '新月の通知', class: "ml-1 mr-5"
+            = f.check_box :need_fullmoon_msg, checked: f.object.need_fullmoon_msg
+            = f.label '満月の通知', class: "ml-1"
+        .md:flex.md:items-center.mb-6
+          .md:w-2/3
+            label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4
+              = f.label '権限'
+          .md:w-2/3
+            = f.select :role, User.roles_i18n.invert
+        = f.submit '変更', class: "btn-bs-primary btn-wide w-full mt-6"
+
+      = button_to admin_user_path(@user),class: "btn-bs-danger btn-wide w-full mt-6", method: :delete do
+        | ユーザー削除

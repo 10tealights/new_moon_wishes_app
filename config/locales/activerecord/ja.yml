@@ -13,6 +13,10 @@ ja:
         come_true: '成就'
         is_shared: '公開'
   enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'
     zodiac_sign:
       name:
         aries: '牡羊座'
