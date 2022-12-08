@@ -1,0 +1,11 @@
+= render 'form', moon: @moon, url: admin_moons_path
+hr.mt-5.mb-2
+.bg-gray-100.flex-1.p-6.md:mt-16
+  .grid.grid-cols-1.gap-5.mt-5
+    .w-full.max-w-xl.mx-auto
+      h2.font-bold.text-lg.mb-6
+        | CSVインポート
+      = form_with model: @moon, url: import_admin_moons_path do |f|
+        .flex.justify-between
+          = f.file_field :file
+          = f.submit 'アップロード', class: "btn-bs-primary"

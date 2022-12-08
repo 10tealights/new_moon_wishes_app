@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     get '/login', to: 'user_sessions#new'
     post '/login', to: 'user_sessions#create'
     delete '/logout', to: 'user_sessions#destroy'
-    resources :users, only: %i[index show edit update destroy]
+    resources :users, only: %i[index edit update destroy]
+    resources :moons, only: %i[index new create edit update destroy] do
+      post :import, on: :collection
+    end
   end
 end

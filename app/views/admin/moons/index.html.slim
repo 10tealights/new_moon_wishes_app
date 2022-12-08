@@ -1,0 +1,21 @@
+.bg-gray-100.flex-1.p-6.md:mt-16
+	.grid.grid-cols-1.gap-5.mt-5
+		.card
+			.card-body
+				.flex.justify-between.items-start
+					h2.font-bold.text-lg.mb-10
+						| 新月・満月
+					= link_to '新規追加', new_admin_moon_path, class:"btn-bs-primary h-9 px-3 py-1"
+				table.table-fixed.w-full
+					thead.text-left
+						tr
+							th.w-3.pb-5.text-sm.text-center
+								i.fas.fa-pen
+							th.w-1/6.pb-5.stracking-wide
+								| サイン
+							th.w-1/3.pb-5.stracking-wide
+								| 新月日時
+							th.w-1/3.pb-5.stracking-wide
+								| 満月日時
+					tbody.text-left.text-gray-600.mb-3
+						= render partial: 'moon', collection: @moons

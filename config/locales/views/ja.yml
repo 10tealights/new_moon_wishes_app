@@ -99,3 +99,6 @@ ja:
     user_sessions:
       destroy:
         logout_success: '管理画面からログアウトしました'
+    moons:
+      form:
+        submit: '登録'

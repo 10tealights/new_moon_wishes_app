@@ -1,0 +1,10 @@
+tr
+  td.w-3.h-8.mb-4.text-xs.text-center
+    = link_to edit_admin_moon_path(moon) do
+      i.fas.fa-pen
+  td.w-1/6.mb-4.text-xs.stracking-wider.text-left.mb-2
+    = moon.zodiac_sign.name_i18n
+  td.w-1/6.mb-4.text-xs.stracking-wider
+    = I18n.l(moon.newmoon_time)
+  td.w-1/6.mb-4.text-xs.stracking-wider
+    = I18n.l(moon.fullmoon_time)
