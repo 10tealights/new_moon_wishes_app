@@ -1,0 +1,19 @@
+.bg-gray-100.flex-1.p-6.md:mt-16
+	.grid.grid-cols-1.gap-5.mt-5
+		.card
+			.card-body
+				.flex.justify-between.items-start
+					h2.font-bold.text-lg.mb-10
+						| サインのテーマ
+					= link_to '新規追加', new_admin_trait_path, class:"btn-bs-primary h-9 px-3 py-1"
+				table.table-fixed.max-w-md
+					thead.text-left
+						tr
+							th.w-1/4.pb-5.text-sm.text-center
+								i.fas.fa-pen
+							th.w-1/2.pb-5.stracking-wide
+								| サイン
+							th.w-1/2.pb-5.stracking-wide
+								| キーワード
+					tbody.text-left.text-gray-600.mb-3
+						= render partial: 'trait', collection: @traits

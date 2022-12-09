@@ -33,5 +33,6 @@ Rails.application.routes.draw do
     resources :moons, only: %i[index new create edit update destroy] do
       post :import, on: :collection
     end
+    resources :traits, only: %i[index new create edit update destroy]
   end
 end

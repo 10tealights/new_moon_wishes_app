@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       zodiac_sign: 'サイン'
       moon: '新月・満月'
+      trait: 'サインテーマ'
     attributes:
       user:
         name: '名前'
@@ -19,6 +20,8 @@ ja:
         fullmoon_time: '満月日時'
       zodiac_sign:
         name: 'サイン'
+      trait:
+        keyword: 'キーワード'
   enums:
     user:
       role:

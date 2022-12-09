@@ -1,0 +1,24 @@
+.bg-gray-100.flex-1.p-6.md:mt-16
+  .grid.grid-cols-1.gap-5.mt-5
+    .w-full.max-w-xl.mx-auto
+      = form_with model: trait, url: url do |f|
+        .md:flex.md:items-center.mb-6
+          .md:w-2/3
+            label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4
+              = f.label ZodiacSign.model_name.human
+          .md:w-2/3
+            = f.collection_radio_buttons :zodiac_sign_id, ZodiacSign.all, :id, :name_i18n, { checked: f.object.zodiac_sign_id } do |b|
+              => b.label do
+                = b.radio_button(class: "mr-1")
+                = b.label(class: "mr-4")
+        .md:flex.md:items-center.mb-6
+          .md:w-2/3
+            label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4
+              = f.label :keyword
+          .md:w-2/3
+            = f.text_field :keyword, class: "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+        = f.submit t('.submit'), class: "btn-bs-primary btn-wide w-full mt-6"
+
+      - if trait.persisted?
+        = button_to admin_trait_path(trait), class: "btn-bs-danger btn-wide w-full mt-6", method: :delete do
+          | 削除

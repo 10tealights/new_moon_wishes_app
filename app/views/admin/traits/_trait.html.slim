@@ -1,0 +1,8 @@
+tr
+  td.w-1/4.h-8.mb-4.text-xs.text-center
+    = link_to edit_admin_trait_path(trait) do
+      i.fas.fa-pen
+  td.w-1/2.mb-4.text-xs.stracking-wider.text-left.mb-2
+    = trait.zodiac_sign.name_i18n
+  td.w-1/2.mb-4.text-xs.stracking-wider
+    = trait.keyword

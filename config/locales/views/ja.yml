@@ -99,6 +99,8 @@ ja:
     user_sessions:
       destroy:
         logout_success: '管理画面からログアウトしました'
-    moons:
+    moons: &form
       form:
         submit: '登録'
+    traits:
+      <<: *form
