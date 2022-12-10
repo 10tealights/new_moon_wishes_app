@@ -5,6 +5,7 @@ ja:
       zodiac_sign: 'サイン'
       moon: '新月・満月'
       trait: 'サインテーマ'
+      tag: 'タグ'
     attributes:
       user:
         name: '名前'
@@ -22,6 +23,8 @@ ja:
         name: 'サイン'
       trait:
         keyword: 'キーワード'
+      tag:
+        name: '名称'
   enums:
     user:
       role:

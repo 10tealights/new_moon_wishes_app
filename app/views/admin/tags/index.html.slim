@@ -1,0 +1,19 @@
+.bg-gray-100.flex-1.p-6.md:mt-16
+	.grid.grid-cols-1.gap-5.mt-5
+		.card
+			.card-body
+				.flex.justify-between.items-start
+					h2.font-bold.text-lg.mb-10
+						| タグ
+					= link_to '新規追加', new_admin_tag_path, class:"btn-bs-primary h-9 px-3 py-1"
+				table.table-fixed.max-w-lg
+					thead.text-left
+						tr
+							th.w-1/4.pb-5.text-sm.text-center
+								i.fas.fa-trash-alt
+							th.w-32.pb-5.stracking-wide
+								| 名称
+							th.w-1/2.pb-5.stracking-wide.text-right
+								| 使用数
+					tbody.text-left.text-gray-600.mb-3
+						= render partial: 'tag', collection: @tags

@@ -34,5 +34,6 @@ Rails.application.routes.draw do
       post :import, on: :collection
     end
     resources :traits, only: %i[index new create edit update destroy]
+    resources :tags, only: %i[index new create destroy]
   end
 end

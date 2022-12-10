@@ -1,0 +1,13 @@
+tr
+  td.w-1/4.h-8.mb-4.text-xs.text-center
+    - if tag.declaration_tags.present?
+      span.fa-stack
+        i.fas.fa-trash-alt.fa-stack-1x.text-sm.text-gray-500
+        i.fas.fa-ban.fa-stack-1x.text-red-400
+    - else
+      = button_to admin_tag_path(tag), method: :delete do
+          i.fas.fa-trash-alt.text-sm
+  td.w-1/2.mb-4.text-xs.stracking-wider.text-left.mb-2
+    = tag.name
+  td.w-1/2.mb-4.text-xs.stracking-wider.text-right
+    = tag.declaration_tags.count

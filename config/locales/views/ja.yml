@@ -104,3 +104,5 @@ ja:
         submit: '登録'
     traits:
       <<: *form
+    tags:
+      <<: *form
