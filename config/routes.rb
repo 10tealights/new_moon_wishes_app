@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     post '/login', to: 'user_sessions#create'
     delete '/logout', to: 'user_sessions#destroy'
     resources :users, only: %i[index edit update destroy]
+    resources :declarations, only: %i[index destroy]
     resources :moons, only: %i[index new create edit update destroy] do
       post :import, on: :collection
     end

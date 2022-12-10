@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      declaration: '願いごと'
       zodiac_sign: 'サイン'
       moon: '新月・満月'
       trait: 'サインテーマ'
