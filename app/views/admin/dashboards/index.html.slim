@@ -1,1 +1,64 @@
-p dashboards#index
+.grid.grid-cols-4.gap-6.px-6.xl:grid-cols-2
+  .card.mt-6
+    .card-body.flex.items-center
+      .px-3.py-2.rounded.bg-indigo-600.text-white.mr-3
+        i.fas.fa-users
+      .flex.flex-col
+        h1.font-semibold
+          = "#{@users_count}ユーザー"
+        p.text-xs
+          = "7days: #{@users_count_lastweek}ユーザー"
+  .card.mt-6
+    .card-body.flex.items-center
+      .px-3.py-2.rounded.bg-green-600.text-white.mr-3
+        i.fas.fa-bullhorn
+      .flex.flex-col
+        h1.font-semibold
+          = "#{@newmoon_notifications_count + @fullmoon_notifications_count}件の通知設定"
+        p.text-xs
+          = "新月:#{@newmoon_notifications_count}, 満月:#{@fullmoon_notifications_count}"
+  .card.mt-6.xl:mt-1
+    .card-body.flex.items-center
+      .px-3.py-2.rounded.bg-yellow-600.text-white.mr-3
+        i.fas.fa-star
+      .flex.flex-col
+        h1.font-semibold
+          = "新月#{@wishes_count}宣言"
+        p.text-xs
+          = "7days: #{@wishes_count_lastweek}宣言"
+  .card.mt-6.xl:mt-1
+    .card-body.flex.items-center
+      .px-3.py-2.rounded.bg-red-600.text-white.mr-3
+        i.fas.fa-list-alt
+      .flex.flex-col
+        h1.font-semibold
+          = "願いごと#{@declarations_count}個"
+        p.text-xs
+          = "7days: #{@declarations_count_lastweek}個"
+
+.bg-gray-100.flex-1.p-6.md:mt-16
+	.card.col-span-2.xl:col-span-1
+		.card-header
+			| 前後3ヶ月の新月一覧
+		table.table-auto.w-full.text-left
+			thead
+				tr
+					th.px-4.py-2.border-r
+						| 宣言数
+					th.px-4.py-2.border-r
+						| サイン
+					th.px-4.py-2.border-r
+						| 新月日時
+					th.px-4.py-2
+						| 満月日時
+			tbody.text-gray-600
+				- @moons.each do |moon|
+					tr
+						td.border.border-l-0.px-4.py-2
+							= moon.newmoon_time < @today ? moon.wishes.count : "N/A"
+						td.border.border-l-0.px-4.py-2
+							= moon.zodiac_sign.name_i18n
+						td.border.border-l-0.px-4.py-2
+							= I18n.l(moon.newmoon_time)
+						td.border.border-l-0.border-r-0.px-4.py-2
+							= I18n.l(moon.fullmoon_time)
