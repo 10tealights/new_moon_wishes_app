@@ -1,7 +1,4 @@
 class Admin::DashboardsController < Admin::BaseController
-  skip_before_action :require_login
-  skip_before_action :check_admin
-
   def index
     @today = Time.current
     one_week_ago = 1.week.ago.beginning_of_day

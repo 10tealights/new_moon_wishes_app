@@ -1,8 +1,4 @@
 class Admin::TagsController < Admin::BaseController
-  skip_before_action :require_login
-  skip_before_action :check_admin
-  layout 'admin/layouts/application'
-
   def index
     @tags = Tag.left_joins(:declaration_tags).group(:id).order(Arel.sql('COUNT(declaration_tags.tag_id) desc'))
   end

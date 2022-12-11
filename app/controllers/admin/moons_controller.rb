@@ -1,10 +1,6 @@
 class Admin::MoonsController < Admin::BaseController
   require 'csv'
 
-  skip_before_action :require_login
-  skip_before_action :check_admin
-  layout 'admin/layouts/application'
-
   def index
     @moons = Moon.all.preload(:zodiac_sign).order(newmoon_time: :asc)
   end

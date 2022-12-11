@@ -1,8 +1,4 @@
 class Admin::TraitsController < Admin::BaseController
-  skip_before_action :require_login
-  skip_before_action :check_admin
-  layout 'admin/layouts/application'
-
   def index
     @traits = Trait.all.preload(:zodiac_sign).order(zodiac_sign_id: :asc)
   end

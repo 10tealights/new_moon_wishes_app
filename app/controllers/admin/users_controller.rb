@@ -1,8 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  skip_before_action :require_login
-  skip_before_action :check_admin
-  layout 'admin/layouts/application'
-
   def index
     @users = User.all.preload(:authentications).order(created_at: :desc)
   end
