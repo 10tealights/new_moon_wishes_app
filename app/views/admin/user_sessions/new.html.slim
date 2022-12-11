@@ -1,1 +1,24 @@
-p user_sessions#login
+.min-h-screen.bg-gray-100.flex.flex-col.justify-center.text-gray-600
+  .p-10.xs:p-0.mx-auto
+    h1.font-bold.text-center.text-2xl
+      | admin login
+    .grid.grid-cols-1.mt-3.mb-5
+      .text-center.whitespace-nowrap
+        span.inline-block.ml-1
+          = t('defaults.site_title')
+    .bg-white.border.w-full.h-64.rounded.divide-y.divide-gray-200
+      .px-5.py-7
+        = form_with url: admin_login_path do |f|
+          .font-semibold.text-sm.text-gray-600.pt-6.block
+            = f.label User.human_attribute_name(:email)
+          = f.text_field :email, placeholder: '登録済みのものをご入力ください', class: "border rounded px-3 py-2 mt-1 mb-3 text-sm w-full"
+          label.font-semibold.text-sm.text-gray-600.block
+            = f.label User.human_attribute_name(:password) 
+          = f.password_field :password, placeholder: 'パスワード(7文字以上)', class: "border rounded px-3 py-2 mt-1 mb-5 text-sm w-full"
+          = f.submit t('defaults.login'), class: "btn-bs-primary btn-wide w-full rounded mb-5"
+    .py-5
+      .grid.grid-cols-1
+        .text-center.sm:text-left.whitespace-nowrap
+          = link_to root_path do
+            button.transition.duration-200.mx-5.px-5.py-4.cursor-pointer.font-normal.text-sm.rounded-lg.text-gray-500.hover:bg-gray-200.focus:outline-none.focus:bg-gray-300.focus:ring-2.focus:ring-gray-400.focus:ring-opacity-50.ring-inset
+              = "#{t('defaults.site_title')}に戻る"

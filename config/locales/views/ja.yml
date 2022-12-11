@@ -97,6 +97,9 @@ ja:
       destroy:
         destroyed: 'ユーザーを削除しました'
     user_sessions:
+      create:
+        login_success: '管理画面にログインしました'
+        login_failed: '管理画面にログインできませんでした'
       destroy:
         logout_success: '管理画面からログアウトしました'
     moons: &form
