@@ -1,0 +1,13 @@
+tr
+  td.min-w-max.pb-3.text-sm.text-center
+    = button_to admin_declaration_path(declaration), method: :delete do
+      i.fas.fa-trash-alt
+  td.pb-3.text-sm.text-center
+    = link_to edit_admin_user_path(declaration.wish.user_id) do
+      i.fas.fa-user
+  td.pb-3
+    = declaration.wish.moon.zodiac_sign.name_i18n
+  td.w-auto.pb-3
+    = I18n.l(declaration.created_at)
+  td.w-9/12.pb-3
+    = fullmoon_emoji_if(declaration) + declaration.message

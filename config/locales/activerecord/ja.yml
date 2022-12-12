@@ -2,6 +2,11 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      declaration: '願いごと'
+      zodiac_sign: 'サイン'
+      moon: '新月・満月'
+      trait: 'サインテーマ'
+      tag: 'タグ'
     attributes:
       user:
         name: '名前'
@@ -12,7 +17,20 @@ ja:
         message: 'メッセージ'
         come_true: '成就'
         is_shared: '公開'
+      moon:
+        newmoon_time: '新月日時'
+        fullmoon_time: '満月日時'
+      zodiac_sign:
+        name: 'サイン'
+      trait:
+        keyword: 'キーワード'
+      tag:
+        name: '名称'
   enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'
     zodiac_sign:
       name:
         aries: '牡羊座'

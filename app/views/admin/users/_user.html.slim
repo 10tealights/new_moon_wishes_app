@@ -1,0 +1,18 @@
+	tr
+	td.w-8.h-8.mb-4.text-xs.stracking-wider.text-center
+		= link_to edit_admin_user_path(user) do
+			i.fas.fa-pen
+	td.w-1/4.mb-4.text-xs.stracking-wider.text-left.mb-2
+		= user.name
+	td.w-1/4.mb-4.text-xs.stracking-wider
+		= user.email || "なし"
+	td.w-1/4.mb-4.text-xs.stracking-wider.text-right
+		= user.crypted_password.present? ? "あり" : "なし"
+	td.w-1/4.mb-4.text-xs.stracking-wider.text-right
+		= user.authentications.present? ? "あり" : "なし"
+	td.w-1/4.mb-4.text-xs.stracking-wider.text-right
+		= user.need_newmoon_msg? ? "ON" : "OFF"
+	td.w-1/4.mb-4.text-xs.stracking-wider.text-right
+		= user.need_fullmoon_msg? ? "ON" : "OFF"
+	td.w-1/4.mb-4.text-xs.stracking-wider.text-right
+		= user.role_i18n

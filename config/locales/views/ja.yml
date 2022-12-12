@@ -92,3 +92,20 @@ ja:
   line_notifications:
     update:
       updated: 'LINE通知設定を変更しました'
+  admin:
+    users:
+      destroy:
+        destroyed: 'ユーザーを削除しました'
+    user_sessions:
+      create:
+        login_success: '管理画面にログインしました'
+        login_failed: '管理画面にログインできませんでした'
+      destroy:
+        logout_success: '管理画面からログアウトしました'
+    moons: &form
+      form:
+        submit: '登録'
+    traits:
+      <<: *form
+    tags:
+      <<: *form

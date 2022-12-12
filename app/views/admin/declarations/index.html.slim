@@ -1,0 +1,22 @@
+.bg-gray-100.flex-1.p-6.md:mt-16
+	.grid.grid-cols-1.gap-5.mt-5
+		.card
+			.card-body
+				.flex.justify-between.items-start
+					h2.font-bold.text-lg.mb-10
+						= "願いごと(公開#{@declarations.count}件)"
+				table.table-fixed.max-w-full.text-xs
+					thead.text-left
+						tr
+							th.pb-5.text-sm.text-center
+								i.fas.fa-trash-alt
+							th.px-2.pb-5.text-sm.text-center
+								i.fas.fa-user
+							th.pb-5
+								| 新月
+							th.pb-5
+								| 宣言日時
+							th.min-w-max.pb-5
+								| メッセージ
+					tbody.text-left.text-gray-600.mb-3
+						= render partial: 'declaration', collection: @declarations
