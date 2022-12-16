@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#top'
   get '/terms', to: 'static_pages#terms'
   get '/privacy', to: 'static_pages#privacy'
+  get 'guide', to: 'static_pages#guide'
   get '/menu', to: 'static_pages#menu'
   get '/login', to: 'user_sessions#new'
   post '/login', to: 'user_sessions#create'

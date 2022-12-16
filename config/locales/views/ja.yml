@@ -62,6 +62,8 @@ ja:
       title: '利用規約'
     privacy:
       title: 'プライバシーポリシー'
+    guide:
+      title: 'ユーザーガイド'
   wishes:
     index:
       title: '願いごと一覧'
