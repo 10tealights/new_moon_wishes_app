@@ -1,0 +1,122 @@
+- content_for :title, t('.title')
+.container.mx-auto.text-indigo-900.mb-20
+  .px-5.border-opacity-50
+    .grid.place-items-center
+      h1.place-items-center.my-6.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
+        = t('.title')
+    .grid.place-items-center
+      .collapse.my-10.max-w-4xl.collapse-plus.border.border-base-300.bg-base-100.rounded-box[tabindex="0"]
+        input.peer[type="checkbox"]
+        .collapse-title.text-xl.font-medium
+          | 願いごとの宣言 
+        .collapse-content.px-5.sm:px-14
+          p.mt-5
+            | 「 
+            span.i.fas.fa-moon.text-md.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            | 願いごと」メニューから願いごとを宣言します。願いごとは最低2個〜最大10個まで宣言できます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_declaration1.png', size: "216x384", class: "my-2 border"
+          .hidden.sm:grid.gap-3.sm:grid-cols-3.my-3
+            = image_tag 'guide_declaration1.png', size: "288x512", class: "my-2 border"
+            = image_tag 'guide_declaration2.png', size: "288x512", class: "my-2 border"
+            = image_tag 'guide_declaration3.png', size: "288x512", class: "my-2 border"
+          p.mt-3
+            | TAGから願いごとに関するテーマを複数選択できます。全く選択しなくても宣言できます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_declaration2.png', size: "216x384", class: "my-2 border"
+          p.mt-3
+            .i.fas.fa-lock-open.text-indigo-400
+            | アイコンの場合、願いごとは公開されます。アイコンをタップして
+            span.i.fas.fa-lock.text-indigo-400
+            | の状態にしていただければ、願いごとは非公開となります。
+          p.mt-3
+            | 「願いごとをする」ボタンで宣言ができ、宣言した願いごとが確認できます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_declaration3.png', size: "216x384", class: "my-2 border"
+          .rounded-box.bg-indigo-50.my-3.p-3.max-w-full
+            p.text-sm.text-indigo-700 
+              | 【願いごとを宣言する際のポイント】
+              br
+              br
+              ul.text-sm.text-indigo-700
+                li.mb-2 1.新月を迎えてから48時間以内に願いごとを宣言しましょう。この時間を過ぎてしまうと、次の新月についての願いごと宣言に自動的に切り替わってしまいます。
+                li 2.願いごとの内容は、すでに叶っている状態かのように、できるだけ「完了形」で書くことをおすすめします。
+
+      .collapse.mb-10.max-w-4xl.collapse-plus.border.border-base-300.bg-base-100.rounded-box[tabindex="1"]
+        input.peer[type="checkbox"]
+        .collapse-title.text-xl.font-medium
+          | アファメーション
+        .collapse-content.px-5.sm:px-14
+          .hidden.sm:grid.gap-3.sm:grid-cols-3.my-3
+            = image_tag 'guide_affirmation1.png', size: "288x512", class: "my-2 border"
+            = image_tag 'guide_affirmation2.png', size: "288x512", class: "my-2 border"
+          p.mt-5
+            | 「 
+            span.i.fas.fa-calendar-alt.text-md.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            | 振り返り」メニューから、すでに宣言している願いごとを見ることができます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_affirmation1.png', size: "216x384", class: "my-2 border"
+          p.mt-3
+            | 「アファメーションをはじめる」ボタンをタップすると、アファメーション画面が表示されます。宣言した願いごとのメッセージが表示されていきますので、アファメーションができます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_affirmation2.png', size: "216x384", class: "my-2 border"
+
+      .collapse.mb-10.max-w-4xl.collapse-plus.border.border-base-300.bg-base-100.rounded-box[tabindex="3"]
+        input.peer[type="checkbox"]
+        .collapse-title.text-xl.font-medium
+          | 願いごとの振り返り
+        .collapse-content.px-5.sm:px-14
+          .hidden.sm:grid.gap-3.sm:grid-cols-3.my-3
+            = image_tag 'guide_reflection1.png', size: "288x512", class: "my-2 border"
+            = image_tag 'guide_reflection2.png', size: "288x512", class: "my-2 border"
+            = image_tag 'guide_reflection3.png', size: "288x512", class: "my-2 border"
+          p.mt-5
+            | 「 
+            span.i.fas.fa-calendar-alt.text-md.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            | 振り返り」メニューから、すでに宣言している願いごとを見ることができます。
+          p.mt-3
+            | 願いごとが達成された場合や、宣言から半年後の満月を迎えた場合に、振り返りをしてみましょう。
+          .rounded-box.bg-indigo-50.my-3.p-3.max-w-full
+            p.text-sm.text-indigo-700 
+              | 一度も振り返っていない場合は、おすすめの振り返り時期を表示しています。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_reflection1.png', size: "216x384", class: "my-2 border"
+          p.mt-3
+            | 「振り返る」ボタンをタップすると、願いごとの達成状況を選ぶ欄とメモの入力欄が表示されます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_reflection2.png', size: "216x384", class: "my-2 border"
+          p.mt-3
+            | 入力をして、「振り返りを終わる」をタップすると、達成状況が願いごと一覧画面で反映されます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_reflection3.png', size: "216x384", class: "my-2 border"
+          .rounded-box.bg-indigo-50.my-3.p-3.max-w-full
+            p.text-sm.text-indigo-700 
+              | ※公開している願いごとであれば、他のユーザーは「願いを応援」メニューから「叶った願い」にてその願いごとを見ることができます。
+              br
+              | (非公開にしたい場合は、「編集」から該当する願いごとの鍵マークをタップして非公開に設定してください。)
+
+      .collapse.mb-5.max-w-4xl.collapse-plus.border.border-base-300.bg-base-100.rounded-box[tabindex="4"]
+        input.peer[type="checkbox"]
+        .collapse-title.text-xl.font-medium
+          | 願いごとの応援
+        .collapse-content.px-5.sm:px-14
+          .hidden.sm:grid.gap-3.sm:grid-cols-3.my-3
+            = image_tag 'guide_cheer1.png', size: "288x512", class: "my-2 border"
+            = image_tag 'guide_cheer2.png', size: "288x512", class: "my-2 border"
+          p.mt-5
+            | 「 
+            span.i.fas.fa-user-friends.text-md.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600.mb-1
+            | 願いを応援」メニューから、他ユーザーの公開された願いごとを見ることができます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_cheer1.png', size: "216x384", class: "my-2 border"
+          p.mt-3
+            | 「 
+            = "&#11088;".html_safe
+            | 応援する」ボタンを押すと、その願いを応援することができ、応援した後は同じように応援した人の合計人数を見ることができます。
+          p.mt-3
+            | 「叶った願い」のボタンから、公開された願いごとで達成されているものを見ることもできます。
+          .flex.justify-center.sm:hidden
+            = image_tag 'guide_cheer2.png', size: "216x384", class: "my-2 border"
+          .rounded-box.bg-indigo-50.my-3.p-3.max-w-full
+            p.text-sm.text-indigo-700 
+              | 他ユーザーの願いごとを見ることで、自分の中で気がついていなかった望みに気づくこともできるかもしれません。
