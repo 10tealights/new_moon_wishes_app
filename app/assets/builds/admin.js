@@ -1,1 +1,0 @@
-//= require @moesaid/cleopatra/dist/js/scripts

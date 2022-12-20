@@ -1,4 +1,4 @@
 default_url_options:
-  host: 'https://new-moon-wishes.herokuapp.com'
+  host: 'https://moon-clarus.com'
 sorcery:
-  line_callback_url: 'https://new-moon-wishes.herokuapp.com/oauth/callback?provider=line'
+  line_callback_url: 'https://moon-clarus.com/oauth/callback?provider=line'
