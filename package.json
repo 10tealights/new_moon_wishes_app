@@ -5,12 +5,12 @@
     "@moesaid/cleopatra": "^1.1.1",
     "autoprefixer": "^10.4.8",
     "daisyui": "^2.24.0",
-    "esbuild": "^0.15.5",
+    "esbuild": "^0.16.7",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
   },
   "scripts": {
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify && tailwindcss -i ./app/assets/stylesheets/admin.css -o ./app/assets/builds/admin.css --minify",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   }
 }
