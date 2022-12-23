@@ -38,7 +38,7 @@ namespace :moon_notification do
         "aspectMode": "cover",
         "action": {
           "type": "uri",
-          "uri": "https://new-moon-wishes.herokuapp.com/"
+          "uri": "#{I18n.t('defaults.site_url')}"
         }
       },
       "body": {
@@ -130,7 +130,7 @@ namespace :moon_notification do
             "action": {
               "type": "uri",
               "label": "#{moon_type.include?('新月') ? '願いごとを宣言する' : '願いごとを振り返る'}",
-              "uri": "#{moon_type.include?('新月') ? 'https://new-moon-wishes.herokuapp.com/wishes/new' : 'https://new-moon-wishes.herokuapp.com/wishes'}"
+              "uri": "#{moon_type.include?('新月') ? "#{I18n.t('defaults.site_url')}/wishes/new" : "#{I18n.t('defaults.site_url')}/wishes"}"
             }
           }
         ],
