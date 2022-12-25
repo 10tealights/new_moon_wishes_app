@@ -8,7 +8,7 @@
   .grid.place-items-center.mb-10
     - if @wishes.present?
       - @wishes.each do |wish|
-        .card.shadow-lg.mt-5.w-4/5.lg:w-3/5.xl:max-w-2xl
+        .card.shadow-md.shadow-indigo-900/10.mt-5.w-4/5.lg:w-3/5.xl:max-w-2xl
           .p-1.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
             p.text-indigo-50.text-center
               | #{wish.zodiac_sign.name_i18n}新月
@@ -17,7 +17,7 @@
           .p-2.text-indigo-700
             - wish.declarations.each do |dec|
               div class="flex rounded #{highlight(dec.come_true)}"
-                p.mx-1 #{fullmoon_emoji_if(dec)}
+                p.mx-1.mt-1.text-sm #{fullmoon_emoji_if(dec)}
                 .flex-row
                   p.mt-1.leading-tight
                     | #{dec.message}
@@ -43,35 +43,16 @@
                 button.btn.btn-sm.btn-outline.btn-error.font-light
                   | 削除
               = link_to edit_wish_path(wish) do
-                button.btn.btn-sm.btn-outline.font-light
+                button.btn.btn-sm.btn-outline.btn-primary.font-light
                   | 編集
               = link_to edit_reflection_path(wish) do
-                button.btn.btn-sm.btn-outline.font-light
+                button.btn.btn-sm.btn-outline.btn-primary.font-light
                   | 振り返る
               .flex-row
                 = link_to affirmation_path(wish) do
-                  button.btn.btn-sm.btn-outline.font-light
+                  button.btn.btn-sm.btn-outline.btn-primary.font-light
                     | アファメーションをはじめる
-            /.collapse
-              input[type="checkbox"]
-              .collapse-title.text-sm.font-medium.text-center
-                | EDIT MENU
-              .collapse-content
-                .card-actions.justify-center.mt-3
-                  = button_to  wish_path(wish), method: :delete do
-                    button.btn.btn-sm.btn-outline.btn-error.font-light
-                      | 削除
-                  = link_to edit_wish_path(wish) do
-                    button.btn.btn-sm.btn-outline.font-light
-                      | 編集
-                  = link_to edit_reflection_path(wish) do
-                    button.btn.btn-sm.btn-outline.font-light
-                      | 振り返る
-                  .flex-row
-                    = link_to edit_wish_path(wish) do
-                      button.btn.btn-sm.btn-outline.font-light
-                        | アファメーションをはじめる
-                
+
     - else
       .grid.place-items-center.mb-10
         p.mt-10.text-indigo-900.text-center
