@@ -9,18 +9,18 @@
         | 叶えたい願い
       button.btn.btn-sm.btn-outline.text-indigo-900.hover:bg-indigo-800[onclick="toggleNavbar('fulfilled', 'wished')"]
         | 叶った願い
-  div id="wished" class="flex flex-col"
+  div id="wished" class="flex flex-col items-center"
     .grid.place-items-center.mb-5
 	    p.text-sm.text-indigo-400 他の人の願いを応援しよう
-    .grid.px-2.mb-10.mx-auto.md:w-4/5.lg:w-3/5
+    .grid.w-full.px-5.mb-10.md:w-4/5.lg:w-3/5
       = render partial: 'other_declaration', collection: @other_wished_declarations
       - if @other_wished_declarations.blank?
         .text-indigo-900.my-10
           | まだ願いがないようです#{"&#128532;".html_safe}
-  div id="fulfilled" class="hidden flex-col"
+  div id="fulfilled" class="hidden flex-col items-center"
     .grid.place-items-center.mb-5
 	    p.text-sm.text-indigo-400 他の人はこんな願いを叶えました
-    .grid.px-2.mb-10.mx-auto.md:w-4/5.lg:w-3/5
+    .grid.w-full.px-5.mb-10.md:w-4/5.lg:w-3/5
       = render partial: 'other_declaration', collection: @other_fulfilled_declarations
       - if @other_fulfilled_declarations.blank?
         .text-indigo-900.my-10
