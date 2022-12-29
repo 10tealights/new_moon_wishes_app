@@ -9,7 +9,7 @@
         .card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
           = image_tag "moon_phase/moon_#{moon_phase_image}.png"
           .card-body.p-5.text-center
-            p.text-sm 本日の月齢は#{get_moon_age}です。次の新月は、#{l(next_newmoon.newmoon_time)}に#{next_newmoon.zodiac_sign.name_i18n}で起こります。
+            p.text-sm 本日の月齢は#{get_moon_age}です。#{next_newmoon_message}
     .grid.place-items-center
       h1.place-items-center.my-6.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
         | MENU
