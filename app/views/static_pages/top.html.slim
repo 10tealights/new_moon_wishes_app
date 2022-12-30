@@ -1,11 +1,11 @@
-.hero.max-h-full.lg:max-h-screen
+.hero.max-h-full
 	= image_tag 'top_eyecatch_moon.jpg'
 	.hero-overlay.bg-opacity-10.sm:bg-opacity-30
 	.hero-content.text-center.text-neutral-content
 		.max-w-lg.lg:max-w-xl
-			h1.mb-5.text-xl.md:text-2xl.lg:text-3xl.font-bold
+			h1.md:mb-5.text-xl.md:text-2xl.lg:text-3xl.font-bold
 				| 心の中にあるその願い、<br>ここで"言葉"にしてみませんか
-			p.mb-5.text-indigo-100.md:text-lg.hidden.sm:flex
+			p.mt-3.mb-5.text-indigo-100.md:text-lg.hidden.sm:flex
 				| 新月に合わせて、自分のやりたいこと・叶えたいこと・もうやめたいことなどを「願いごと」として宣言。半年後、あなたのLINEへ振り返りの時期であることをお知らせします。
 			= button_to guest_login_path do
 				button.btn.border-none.hidden.sm:inline-block.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700.hover:bg-gradient-to-r.hover:from-purple-600.hover:via-indigo-500.hover:to-blue-600
@@ -24,7 +24,7 @@ section.bg-indigo-50
 		.text-xl.font-semibold.text-center.text-indigo-900.lg:text-2xl
 			| このアプリでできること 
 	.grid.grid-cols-1.gap-2.mt-4.xl:mt-6.xl:gap-3.md:grid-cols-2.sm:mx-14
-		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-lg.bg-base-100
+		.flex.flex-col.items-center.mx-5.mb-5.p-6.space-y-3.text-center.bg-white.rounded-xl.shadow-md.shadow-indigo-900/10.bg-base-100
 			span.inline-block.p-3.text-indigo-700.rounded-full.bg-gradient-to-r.from-purple-200.via-indigo-100.to-blue-200
 				i.fas.fa-feather-alt.text-2xl.w-8.pt-1
 			h1.text-xl.capitalize.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700
@@ -84,5 +84,5 @@ section.bg-indigo-50
 		.text-md.text-center.text-indigo-400
 			| 新規登録をスキップして、すぐに始めていただけます。
 		= button_to guest_login_path do
-			button.btn.mt-6.border-none.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700.hover:bg-gradient-to-r.hover:from-purple-600.hover:via-indigo-500.hover:to-blue-600
+			button.btn.btn-wide.w-full.mt-6.border-none.bg-gradient-to-r.from-purple-700.via-indigo-600.to-blue-700.hover:bg-gradient-to-r.hover:from-purple-600.hover:via-indigo-500.hover:to-blue-600
 				| 今から言葉にしてみる

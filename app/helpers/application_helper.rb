@@ -39,8 +39,13 @@ module ApplicationHelper
     end
   end
 
-  def next_newmoon
-    Moon.latest
+  def next_newmoon_message
+    moon_latest = Moon.latest
+    if moon_latest.newmoon_time < Time.current
+      message = "現在、新月を迎えてから48時間以内です。新月の願いごとをしてみませんか？"
+    else
+      message = "次の新月は、#{l(moon_latest.newmoon_time)}に#{moon_latest.zodiac_sign.name_i18n}で起こります。"
+    end
   end
 
   def get_moon_age

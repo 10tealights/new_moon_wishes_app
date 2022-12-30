@@ -4,7 +4,7 @@
     h1.mt-6.mb-3.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
       = t('.title')
     - if @current_user.name&.include?('GUEST') && @current_user.email&.include?('guest_') && @current_user.authentications.blank?
-      .card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
+      .card.shadow-lg.shadow-indigo-900/10.w-4/5.sm:w-3/5.lg:w-2/5
         .card-body.p-5
           span.badge
             = User.human_attribute_name(:name)
@@ -19,10 +19,10 @@
               .btn.btn-sm.btn-outline.btn-error.font-light
                 | ゲストユーザー削除
             = link_to edit_user_path(current_user) do
-              button.btn.btn-sm.btn-outline.font-light
+              button.btn.btn-sm.btn-outline.btn-primary.font-light
                 | このまま新規登録する
     - else
-      .card.shadow-lg.w-4/5.sm:w-3/5.lg:w-2/5
+      .card.shadow-lg.shadow-indigo-900/10.w-4/5.sm:w-3/5.lg:w-2/5
         .card-body.p-5
           span.badge
             = User.human_attribute_name(:name)
@@ -31,16 +31,13 @@
           span.badge
             = User.human_attribute_name(:email)
           p.ml-3
-            - if @current_user.email&.exclude?('guest_') && @current_user.email&.exclude?('@example.com')
-              = @current_user.email
-            - else
-              | 未登録
+            = @current_user.email.nil? ? '未登録' : @current_user.email
           .card-actions.justify-end.mt-3
             label.modal-button.text-indigo-400.text-md[for="my-modal-7"]
               .btn.btn-sm.btn-outline.btn-error.font-light
                 | ユーザー削除
             = link_to edit_profile_path do
-              button.btn.btn-sm.btn-outline.font-light
+              button.btn.btn-sm.btn-outline.btn-primary.font-light
                 | 編集
     
     h1.mt-6.mb-3.text-xl.text-bold.bg-indigo-100.text-transparent.bg-clip-text.bg-gradient-to-r.from-purple-600.via-indigo-500.to-blue-600
@@ -53,12 +50,12 @@
             .flex-col.pl-2.pr-5.flex-grow
               = @current_user.line_name
               p.text-sm.text-gray-400 連携されています
-            - if @current_user.crypted_password.present? && @current_user.email.present? && @current_user.email.exclude?('guest_') && @current_user.email.exclude?('@example.com')
+            - if @current_user.crypted_password.present? && @current_user.email.present? && @current_user.email&.exclude?('guest_') && @current_user.email&.exclude?('@example.com')
               = button_to oauth_path(@oauth.id), method: :delete do
-                button.btn.btn-sm.btn-outline.font-light
+                button.btn.btn-sm.btn-outline.btn-primary.font-light
                   | 解除
             - else
-              button.btn.btn-sm.btn-outline.font-light[disabled="disabled"]
+              button.btn.btn-sm.btn-outline.btn-primary.font-light[disabled="disabled"]
                 | 解除 
           .divider.mt-3.mb-1.text-sm
             | 現在の通知設定
@@ -67,26 +64,26 @@
               = "&#127761;".html_safe
               p 新月の日に通知する
               = button_to line_notification_path(@current_user, need_newmoon_msg: :false), method: :patch do
-                button.btn.btn-sm.btn-outline.font-light
+                button.btn.btn-sm.btn-outline.btn-primary.font-light
                   | 解除
             - else
               = "&#127761;".html_safe
               p 新月の日に通知しない
               = button_to line_notification_path(@current_user, need_newmoon_msg: :true), method: :patch do
-                button.btn.btn-sm.btn-outline.font-light
+                button.btn.btn-sm.btn-outline.btn-primary.font-light
                   | 通知
           .flex.items-center
             - if @current_user.need_fullmoon_msg?
               = "&#127765;".html_safe
               p 満月の日に通知する
               = button_to line_notification_path(@current_user, need_fullmoon_msg: :false), method: :patch do
-                button.btn.btn-sm.btn-outline.font-light
+                button.btn.btn-sm.btn-outline.btn-primary.font-light
                   | 解除
             - else
               = "&#127765;".html_safe
               p 満月の日に通知しない
               = button_to line_notification_path(@current_user, need_fullmoon_msg: :true), method: :patch do
-                button.btn.btn-sm.btn-outline.font-light
+                button.btn.btn-sm.btn-outline.btn-primary.font-light
                   | 通知
       label.modal-button.text-indigo-400.text-md.mt-5[for="my-modal-5"]
         i.fas.fa-question-circle.pr-1
@@ -171,7 +168,7 @@ label.modal.cursor-pointer[for="my-modal-6"]
         button.btn.btn-sm.btn-outline.btn-error.font-light
           | 削除してログアウト
       = link_to edit_user_path(@current_user) do
-        button.btn.btn-sm.btn-outline.font-light
+        button.btn.btn-sm.btn-outline.btn-primary.font-light
           | このまま新規登録する
 
 input#my-modal-7.modal-toggle[type="checkbox"]
@@ -185,5 +182,5 @@ label.modal.cursor-pointer[for="my-modal-7"]
       = button_to user_path(@current_user), method: :delete do
         button.btn.btn-sm.btn-outline.btn-error.font-light
           | ユーザー削除
-      label.btn.btn-sm.btn-outline.font-light[for="my-modal-7"]
+      label.btn.btn-sm.btn-outline.btn-primary.font-light[for="my-modal-7"]
         | キャンセル
