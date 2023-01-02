@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :wish do
-    user { nil }
-    moon { nil }
-    memo { 'MyText' }
+    moon { Moon.latest }
+    memo { nil }
+    user
   end
 end
