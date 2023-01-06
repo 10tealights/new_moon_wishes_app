@@ -1,0 +1,2 @@
+sorcery:
+  line_callback_url: 'https://moon-clarus.com/oauth/callback?provider=line'

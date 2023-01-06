@@ -1,8 +1,12 @@
 FactoryBot.define do
   factory :declaration do
     wish { nil }
-    message { 'MyString' }
-    come_true { 1 }
-    is_shared { false }
+    sequence(:message, 'test_declaration_message_1')
+    come_true { 0 }
+    is_shared { true }
+
+    trait :add_wish do
+      wish
+    end
   end
 end
