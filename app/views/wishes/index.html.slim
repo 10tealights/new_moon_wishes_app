@@ -28,6 +28,9 @@
                   - dec.tags.each do |tag|
                     .badge.badge-xs.mt-1.mr-1.bg-indigo-100.text-indigo-400.border-opacity-20
                       => tag.name
+                  - if dec.cheers.present?
+                    .badge.badge-ghost.badge-xs.mt-1.mr-1.bg-indigo-400.text-white.border-none
+                      => "#{dec.cheers.count}人が応援"
               .divider.m-0
             .p-2.mt-2.mb-4.bg-indigo-50.rounded
               - if wish.memo.present?
