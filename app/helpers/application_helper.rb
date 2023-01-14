@@ -18,7 +18,7 @@ module ApplicationHelper
       page_description
     end
   end
-  
+
   # 各ページの説明文 50文字前後
   def og_description(page_description = '')
     base_description = t 'defaults.site_description_short' 
@@ -28,7 +28,7 @@ module ApplicationHelper
       page_description
     end
   end
-  
+
   # 各ページのイメージ画像
   def og_image(page_image = '')
     base_image = image_url('clarus_ogp.png')
@@ -94,6 +94,14 @@ module ApplicationHelper
       'bg-gradient-to-b from-yellow-200 via-yellow-100 to-yellow-50'
     when 'removed'
       'opacity-60'
+    end
+  end
+
+  def change_display_if(declarations_count)
+    if declarations_count < 5
+      'flex h-screen items-center justify-center mx-10 pb-16'
+    else
+      'grid place-items-center mx-10 pt-32 pb-16'
     end
   end
 end
