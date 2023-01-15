@@ -1,7 +1,7 @@
 .flex.items-center.p-1.md:p-2.w-full.h-10.md:h-14.bg-indigo-50.text-indigo-900
   .flex-1.px-3
     = link_to logged_in? ? menu_path : root_path do 
-      = image_tag 'clarus_logo.svg', size: "98x16"
+      = image_tag 'clarus_logo.png', size: '96x13'
   - if logged_in?
     .flex.justify-end.md:hidden
       = link_to guide_path do
