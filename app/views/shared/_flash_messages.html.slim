@@ -1,7 +1,7 @@
 - flash.each do |message_type, message|
   - next if message_type == 'allow_other_host'
   div[onClick="deleteAlert(500)"]
-    #js-alert-banner.alert-banner.w-full.fixed.top-0.md:hidden
+    #js-alert-banner.alert-banner.w-full.fixed.z-10.top-0.md:hidden
       input#banneralert.hidden[type="checkbox"]
       label.close.cursor-pointer.flex.items-center.justify-between.w-full.px-3.py-2.text-indigo-700.bg-gradient-to-r.from-purple-100.via-indigo-100.to-blue-100[title="close" for="banneralert"]
         .flex.items-center
@@ -20,7 +20,23 @@
             | #{message}
         i.fas.fa-times.mr-1
 
+  - if message == '願いごとを宣言しました'
+    #loader-wrap
+      .loader.loader-2
+        svg.loader-star[xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"]
+          polygon[points="29.8 0.3 22.8 21.8 0 21.8 18.5 35.2 11.5 56.7 29.8 43.4 48.2 56.7 41.2 35.1 59.6 21.8 36.8 21.8 " fill="#FCD34D"]
+        .loader-circles
+
 javascript:
+  const wrap = document.getElementById('loader-wrap');
+  function deleteLoading() {
+    wrap.classList.add('fadeout');
+    setTimeout(() => {
+      wrap.remove();
+    }, 3000);
+  }
+  deleteLoading();
+
   function deleteAlert(disapperTime) {
     setTimeout(() => {
       document.getElementById('js-alert-banner').remove();
